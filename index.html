@@ -3,28 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shoreline Dev Co. | Web Development Portfolio</title>
+  <title>Shoreline Dev Co. | Modern Web Design for Local Brands</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- NAVBAR -->
   <header class="site-header">
     <nav class="nav">
-      <a href="index.html" class="nav-logo">
+      <a href="#hero" class="nav-logo">
         <img src="images/SDC.logo.transparent.png" alt="Shoreline Dev Co. logo" />
         <span class="nav-logo-text">Shoreline Dev Co.</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#featured">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#why">Why Shoreline</a></li>
+        <li><a href="#mobile">Mobile-First</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
 
       <a
-        href="#contact"
+        href="https://forms.gle/ShFkSrG37MMVCZtz6"
+        target="_blank"
+        rel="noopener noreferrer"
         class="nav-cta"
       >
         Inquire Now
@@ -32,161 +33,265 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
   <main>
-    
+    <!-- HERO -->
     <section id="hero" class="hero">
-        
-      <div class="hero-overlay">
+      <!-- floating background shapes -->
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+
+      <div class="hero-inner">
+        <!-- LEFT: lighthouse / image panel -->
+        <div class="hero-media">
+          <div class="hero-media-card">
+            <div class="hero-media-overlay"></div>
+            <!-- swap this image with a real lighthouse/wave pic -->
+            <img
+              src="images/lighthouse-hero.jpg"
+              alt="Lighthouse on the shoreline"
+              class="hero-media-img"
+            />
+          </div>
+        </div>
+
+        <!-- RIGHT: text / rotating services / CTA -->
         <div class="hero-content">
+          <p class="hero-tag">Web Design & Development</p>
+
           <h1 class="hero-title">
-            
-            Ready to grow your business?
+            Shoreline<br />
+            Dev Co.
           </h1>
+
+          <div class="hero-rotator">
+            <span id="hero-rotator-text" class="hero-rotator-text">Web Design</span>
+          </div>
+
           <p class="hero-subtitle">
-            Design a modern, user-friendly website for your small business and build a stronger online presence.
+            Modern, conversion-focused websites for local brands.
           </p>
 
-          <a
-            class="hero-button"
-            href="https://forms.gle/ShFkSrG37MMVCZtz6"
-            target="_blank"
-            rel="noopener noreferrer"
-            
-          >
-          
-            Get Started 
-          </a>
-          
-          
-          <div class="hero-benefits">
-            
-            <div class="benefit-column">
-                
-              <h3>Stronger Online Presence</h3>
-              <p>
-                A dedicated website makes your business easier to find and trust, beyond just social media profiles.
-              </p>
-            </div>
-            <div class="benefit-column">
-              <h3>User-Friendly Experience</h3>
-              <p>
-                Clean layouts and clear calls-to-action help your customers quickly find what they need and contact you.
-              </p>
-            </div>
+          <div class="hero-ctas">
+            <a
+              href="https://forms.gle/ShFkSrG37MMVCZtz6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Launch Your $99 Website
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              View Recent Projects
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <span class="trust-chip">⭐ Custom, hand-built sites</span>
+            <span class="trust-chip">⭐ Mobile-first layouts</span>
+            <span class="trust-chip">⭐ SEO-friendly structure</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section id="featured" class="section featured-section">
+    <!-- RECENT PROJECTS -->
+    <section id="projects" class="section projects-section">
       <div class="section-header">
-        <h2>Featured Projects</h2>
-        <p>Hand-built websites for real small businesses. More projects will be added as they launch.</p>
+        <h2>Recent Projects</h2>
+        <p>
+          A growing collection of websites designed and developed for real small businesses. Each build is tailored to
+          the brand, goals, and audience.
+        </p>
       </div>
 
       <div class="projects-grid">
-        <!-- Project card 1 -->
+        <!-- Project 1 -->
         <article class="project-card">
-          <div class="project-image-wrapper">
-            <!-- Replace this placeholder image when you have a real screenshot -->
-            <img src="images/hard-knox-placeholder.jpg" alt="Hard Knox Fitness website preview" />
+          <div class="project-frame project-frame-blue">
+            <div class="project-image-wrapper">
+              <img src="images/hard-knox-placeholder.jpg" alt="Hard Knox Fitness website" />
+            </div>
           </div>
-          <div class="project-content">
+          <div class="project-meta">
             <h3>Hard Knox Fitness</h3>
-            <p>
-              A bold, high-energy single-page site for a local fitness brand, featuring class highlights and easy
-              mobile navigation.
-            </p>
+            <p>High-energy single-page site with class highlights and simple mobile navigation.</p>
             <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
+              <span>Web Design</span>
+              <span>HTML &amp; CSS</span>
               <span>Responsive</span>
             </div>
-            <!-- Uncomment when live
-            <a href="https://your-live-link-here" target="_blank" class="project-link">View Live Site</a>
-            -->
           </div>
         </article>
 
-        <!-- Future projects: duplicate this card and update the details/images -->
-        <!--
+        <!-- Project 2 placeholder -->
         <article class="project-card">
-          <div class="project-image-wrapper">
-            <img src="images/your-next-project.jpg" alt="Project preview" />
+          <div class="project-frame project-frame-teal">
+            <div class="project-image-wrapper">
+              <img src="images/project-placeholder-1.jpg" alt="Small business website placeholder" />
+            </div>
           </div>
-          <div class="project-content">
-            <h3>Project Name</h3>
-            <p>Short description of the project and what you built.</p>
+          <div class="project-meta">
+            <h3>Local Service Brand</h3>
+            <p>Clean, modern layout designed to showcase services and make contacting the business easy.</p>
             <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
+              <span>Branding</span>
+              <span>UX/UI</span>
+              <span>Lead Generation</span>
             </div>
           </div>
         </article>
-        -->
+
+        <!-- Project 3 placeholder -->
+        <article class="project-card">
+          <div class="project-frame project-frame-sand">
+            <div class="project-image-wrapper">
+              <img src="images/project-placeholder-2.jpg" alt="E-commerce website placeholder" />
+            </div>
+          </div>
+          <div class="project-meta">
+            <h3>Online Shop Concept</h3>
+            <p>Product-first design focused on clarity, trust, and simple checkout for local customers.</p>
+            <div class="project-tags">
+              <span>E-Commerce</span>
+              <span>Conversion Focused</span>
+              <span>Responsive</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- WHY SHORELINE DEV CO. -->
-    <section id="about" class="section why-section">
+    <section id="why" class="section metrics-section">
       <div class="section-header">
         <h2>Why Shoreline Dev Co.?</h2>
         <p>
-          A modern, beach-inspired web studio focused on small businesses that need clean, effective websites without
-          agency-level pricing.
+          Your website should do more than just look good. Shoreline Dev Co. focuses on the metrics that actually move
+          your business forward.
         </p>
       </div>
 
-      <div class="why-grid">
-        <div class="why-card">
-          <h3>Built for Small Businesses</h3>
+      <div class="metrics-tabs">
+        <button class="metrics-tab active" data-metric="visibility">Visibility</button>
+        <button class="metrics-tab" data-metric="conversions">Conversions</button>
+        <button class="metrics-tab" data-metric="roi">ROI</button>
+        <button class="metrics-tab" data-metric="growth">Growth</button>
+      </div>
+
+      <div class="metrics-panels">
+        <div class="metrics-panel active" data-metric="visibility">
+          <h3>Increase Online Visibility</h3>
           <p>
-            I work with real local businesses—gyms, groomers, shops and more—to create websites that match their brand
-            and goals.
+            Being seen online is the first step to attracting more customers. I build sites that are easy for search
+            engines and people to understand, so local customers can find you when they’re ready to buy.
           </p>
         </div>
-        <div class="why-card">
-          <h3>Modern & Clean Design</h3>
+
+        <div class="metrics-panel" data-metric="conversions">
+          <h3>Turn Clicks into Customers</h3>
           <p>
-            Every site is designed with a minimal, modern layout so your customers aren’t overwhelmed and your brand
-            stands out.
+            Clean layouts, strong messaging, and clear calls-to-action help visitors know exactly what to do next—
+            whether that’s calling, booking, or buying.
           </p>
         </div>
-        <div class="why-card">
-          <h3>Mobile-First & Fast</h3>
+
+        <div class="metrics-panel" data-metric="roi">
+          <h3>Make the Most of Your Budget</h3>
           <p>
-            Your site is built to look great and load quickly on phones, tablets and desktops—wherever your customers
-            find you.
+            Starting at just $99 for a custom website, the goal is to give you a professional online presence that pays
+            for itself quickly, without agency-level retainers.
           </p>
         </div>
-        <div class="why-card">
-          <h3>Simple, Transparent Setup</h3>
+
+        <div class="metrics-panel" data-metric="growth">
+          <h3>Built to Grow with You</h3>
           <p>
-            From initial questions to launch, I guide you through the process and keep the tech stack simple and
-            affordable.
+            As your business grows, your site can evolve. Add new services, pages, or features later without having to
+            start from scratch every time.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Placeholder sections for future pages -->
-    <section id="services" class="section placeholder-section">
-      <div class="section-header">
-        <h2>Services</h2>
-        <p>Details about specific service packages will go here in the next step.</p>
+    <!-- MOBILE-FIRST SECTION -->
+    <section id="mobile" class="section mobile-section">
+      <div class="mobile-inner">
+        <div class="mobile-media">
+          <div class="mobile-phone-stack">
+            <div class="phone phone-back">
+              <img src="images/mobile-mockup-2.jpg" alt="Website on mobile device" />
+            </div>
+            <div class="phone phone-front">
+              <img src="images/mobile-mockup-1.jpg" alt="Website on mobile device" />
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-content">
+          <p class="eyebrow">Responsive Design</p>
+          <h2>Looks Great on Every Device</h2>
+          <p>
+            More than half of your visitors are on their phones. Every Shoreline Dev Co. website is designed
+            mobile-first, so your site feels fast, clear, and easy to use—on phones, tablets, and desktops.
+          </p>
+
+          <a
+            href="https://forms.gle/ShFkSrG37MMVCZtz6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Get Started
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="section placeholder-section">
-      <div class="section-header">
-        <h2>Contact</h2>
-        <p>
-          A simple contact form or clear contact details will go here so clients can easily reach out. For now, you can
-          add your email: <a href="mailto:mtufano89@outlook.com">mtufano89@outlook.com</a>.
-        </p>
+    <!-- ABOUT / CONTACT & REVIEWS -->
+    <section id="about" class="section about-section">
+      <div class="about-inner">
+        <div class="about-content">
+          <p class="eyebrow">About Shoreline Dev Co.</p>
+          <h2>Don’t Know Where to Start?</h2>
+          <p>
+            I help local brands turn rough ideas into polished, live websites. We’ll hop on a quick call or Zoom,
+            discuss your goals, and map out the most effective website for your business and budget.
+          </p>
+          <p>
+            You don’t need to speak “tech.” You bring the story of your business—I’ll handle the layout, messaging, and
+            build.
+          </p>
+
+          <div class="about-ctas">
+            <a
+              href="https://forms.gle/ShFkSrG37MMVCZtz6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Get Your $99 Website Started
+            </a>
+            <a href="mailto:mtufano89@outlook.com" class="btn btn-secondary">
+              Email Mike
+            </a>
+          </div>
+        </div>
+
+        <div class="about-side">
+          <div class="reviews-card">
+            <p class="reviews-label">Client Feedback</p>
+            <h3>Excellent</h3>
+            <p class="reviews-stars">★★★★★</p>
+            <p class="reviews-note">Reviews coming soon as new projects launch.</p>
+
+            <div class="review-pills">
+              <span class="review-pill">Easy to work with</span>
+              <span class="review-pill">Clear communication</span>
+              <span class="review-pill">Fast turnaround</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -195,16 +300,62 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-brand">Shoreline Dev Co.</p>
-      <p class="footer-tagline">Web development for small businesses.</p>
+      <p class="footer-tagline">Modern websites for local brands.</p>
       <p class="footer-meta">© 2025 Shoreline Dev Co. · Built by Mike Tufano</p>
 
       <div class="footer-links">
-        <a href="#featured">Projects</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#projects">Projects</a>
+        <a href="#why">Why Shoreline</a>
+        <a href="#mobile">Mobile-First</a>
+        <a href="#about">Contact</a>
       </div>
     </div>
   </footer>
+
+  <!-- SIMPLE JS FOR ROTATOR + TABS -->
+  <script>
+    // Rotating services under hero title
+    const services = [
+      "Web Design",
+      "Web Development",
+      "Branding",
+      "UX/UI Design",
+      "SEO",
+      "Digital Strategy",
+      "Maintenance"
+    ];
+    const rotator = document.getElementById("hero-rotator-text");
+    let serviceIndex = 0;
+
+    function rotateService() {
+      serviceIndex = (serviceIndex + 1) % services.length;
+      rotator.classList.remove("hero-rotator-text-visible");
+      void rotator.offsetWidth; // trigger reflow for animation
+      rotator.textContent = services[serviceIndex];
+      rotator.classList.add("hero-rotator-text-visible");
+    }
+
+    if (rotator) {
+      rotator.classList.add("hero-rotator-text-visible");
+      setInterval(rotateService, 2400);
+    }
+
+    // Tabs for metrics section
+    const tabButtons = document.querySelectorAll(".metrics-tab");
+    const panels = document.querySelectorAll(".metrics-panel");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const metric = btn.dataset.metric;
+
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        panels.forEach((panel) => {
+          panel.classList.toggle("active", panel.dataset.metric === metric);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
