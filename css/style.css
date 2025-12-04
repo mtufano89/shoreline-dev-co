@@ -254,11 +254,13 @@ body {
 /* MOBILE: hero image becomes full background */
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
-    background-image: url("../images/lighthouse-hero.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+   background-image:
+  linear-gradient(to bottom, rgba(10, 20, 30, 0) 60%, rgba(10, 20, 30, 1) 100%),
+  url("../images/lighthouse-hero.jpg");
+background-size: contain;
+background-position: top center;
+background-repeat: no-repeat;
+
   }
 
   .hero-media {
