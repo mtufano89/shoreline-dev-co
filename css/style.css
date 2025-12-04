@@ -251,6 +251,20 @@ body {
   filter: blur(4px);
   pointer-events: none;
 }
+/* MOBILE: hero image becomes full background */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    background-image: url("../images/lighthouse-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-media {
+    display: none; /* hide empty left column */
+  }
+}
 
 .hero-shape-1 {
   width: 320px;
@@ -773,20 +787,6 @@ body {
   margin: 0 0 1.4rem;
   color: var(--text-muted);
   font-size: 0.96rem;
-}
-/* MOBILE: hero image becomes full background */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    background-image: url("../images/lighthouse-hero.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .hero-media {
-    display: none; /* hide empty left column */
-  }
 }
 
 /* =============================
