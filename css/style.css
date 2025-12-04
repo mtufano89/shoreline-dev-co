@@ -231,6 +231,64 @@ body {
     transform: translateY(0);
   }
 }
+/* ============================
+   LIGHTHOUSE BEAM ANIMATION
+============================ */
+
+.hero-beam {
+  position: absolute;
+  /* adjust these to line up with the lighthouse top */
+  left: 12%;
+  top: 8%;
+  width: 520px;
+  height: 260px;
+
+  /* soft cone of light */
+  background: conic-gradient(
+    from -20deg,
+    rgba(255, 255, 255, 0.0) 0deg,
+    rgba(248, 250, 252, 0.16) 20deg,
+    rgba(248, 250, 252, 0.03) 60deg,
+    rgba(0, 0, 0, 0) 80deg
+  );
+
+  transform-origin: left bottom;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  pointer-events: none;
+  animation: lighthouseBeamSweep 14s ease-in-out infinite;
+}
+
+/* Only show beam on desktop */
+@media (max-width: 768px) {
+  .hero-beam {
+    display: none;
+  }
+}
+
+@keyframes lighthouseBeamSweep {
+  0% {
+    transform: rotate(-10deg) translateY(0);
+    opacity: 0.65;
+  }
+  25% {
+    transform: rotate(5deg) translateY(-4px);
+    opacity: 0.9;
+  }
+  50% {
+    transform: rotate(12deg) translateY(-8px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: rotate(0deg) translateY(-3px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotate(-10deg) translateY(0);
+    opacity: 0.65;
+  }
+}
+
 
 .hero-inner {
   animation: fade-up-soft 700ms ease-out 120ms both;
@@ -452,15 +510,31 @@ background-repeat: no-repeat;
   box-shadow: 0 20px 50px rgba(248, 180, 75, 0.65);
 }
 
+
+
+
+/* ============ SECONDARY BUTTON — YELLOW STYLE ============ */
+
 .btn-secondary {
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  color: var(--text-main);
-  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0c1220; /* dark text on yellow */
+  background: linear-gradient(135deg, #ffd46b, #ffb632);
+  box-shadow: 0 12px 25px rgba(255, 185, 60, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Hover */
 .btn-secondary:hover {
-  background: rgba(15, 23, 42, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(255, 185, 60, 0.45);
 }
+
 
 /* trust chips */
 
@@ -911,6 +985,35 @@ background-repeat: no-repeat;
   background: rgba(15, 23, 42, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.6);
 }
+/* ============================
+   MOBILE STICKY CTA
+============================ */
+
+.mobile-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #ffd46b, #ffb632);
+    padding: 0.9rem;
+    text-align: center;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.35);
+    z-index: 9999;
+  }
+
+  .mobile-sticky-cta a {
+    font-weight: 700;
+    color: #0c1220;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+}
+
 
 /* =============================
    FOOTER
