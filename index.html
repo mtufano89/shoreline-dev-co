@@ -89,7 +89,7 @@
     </section>
 
     <!-- RECENT PROJECTS -->
-    <section id="projects" class="section projects-section">
+<section id="projects" class="section projects-section reveal-on-scroll">
       <div class="section-inner">
         <h2>Recent Projects</h2>
         <p>
@@ -156,7 +156,7 @@
     </section>
 
     <!-- WHY SHORELINE DEV CO. -->
-    <section id="why" class="section why-section">
+<section id="why" class="section why-section reveal-on-scroll">
       <div class="section-inner">
         <h2>Why Shoreline Dev Co.?</h2>
         <p>
@@ -208,7 +208,7 @@
     </section>
 
     <!-- MOBILE-FIRST SECTION -->
-    <section id="mobile" class="section mobile-section">
+<section id="mobile" class="section mobile-section reveal-on-scroll">
       <div class="mobile-inner">
         <div class="mobile-media">
           <div class="mobile-phone-stack">
@@ -242,7 +242,7 @@
     </section>
 
     <!-- ABOUT / CONTACT & REVIEWS -->
-    <section id="about" class="section contact-section">
+<section id="about" class="section contact-section reveal-on-scroll">
       <div class="about-inner">
         <div class="about-content">
           <p class="eyebrow">About Shoreline Dev Co.</p>
@@ -349,6 +349,31 @@
         });
       });
     });
+    
   </script>
+  <script>
+  // existing JS above (rotator + metrics tabs) ...
+
+  // Scroll reveal
+  const revealItems = document.querySelectorAll('.reveal-on-scroll');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // optional: stop observing once revealed
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealItems.forEach((el) => observer.observe(el));
+</script>
+
 </body>
 </html>
