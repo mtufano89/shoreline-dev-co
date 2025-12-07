@@ -1153,3 +1153,13 @@ background-repeat: no-repeat;
   opacity: 1;
   transform: translateY(0);
 }
+/* Project title links – force white, remove default link styles */
+.project-meta h3 a {
+  color: #ffffff !important;       /* or whatever color your titles use */
+  text-decoration: none;
+}
+
+.project-meta h3 a:hover {
+  text-decoration: underline;
+  color: #ffffff !important;
+}
