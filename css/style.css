@@ -214,7 +214,7 @@ body {
       rgba(2, 6, 23, 0.8) 55%,
       rgba(2, 6, 23, 1) 100%
     ),
-    url("../images/lighthouse-hero.png");
+    url("../images/hero.jpg");
   background-size: cover;
   background-position: left center;
   overflow: hidden;
@@ -1162,4 +1162,209 @@ background-repeat: no-repeat;
 .project-meta h3 a:hover {
   text-decoration: underline;
   color: #ffffff !important;
+}
+/* =========================================
+   SHORELINE DEV CO – LIGHT MODE OVERRIDES
+   ========================================= */
+
+/* Global light palette */
+:root {
+  --bg-dark: #f3f4f6;          /* page background (now light)       */
+  --bg-hero: #e5f2fa;          /* hero background tint              */
+  --bg-section: #ffffff;       /* card/section base                 */
+  --bg-section-soft: #f9fafb;  /* softer light section              */
+  --text-main: #0f172a;        /* main text color                   */
+  --text-muted: #4b5563;       /* muted/secondary text              */
+
+  /* keep your accent colors, just slightly softer */
+  --accent-teal: #22d3ee;
+  --accent-blue: #38bdf8;
+  --accent-sand: #fbbf77;
+}
+
+/* Body */
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+}
+
+/* =============================
+   NAVBAR – LIGHT
+   ============================= */
+
+.site-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.nav-logo {
+  color: #0f172a;
+}
+
+.nav-links a {
+  color: #1f2937;
+  opacity: 0.9;
+}
+
+.nav-links a:hover {
+  color: #0f172a;
+}
+
+.nav-links a.active {
+  color: var(--accent-teal);
+}
+
+/* =============================
+   HERO – LIGHT + NEW IMAGE
+   ============================= */
+
+.hero {
+  /* hero is just the lighthouse image */
+  background-image: url("../images/logo_light.png");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+
+.hero-right {
+  /* make sure text reads well on white */
+  padding: 4rem clamp(2rem, 6vw, 4rem);
+}
+
+.hero-tag {
+  color: var(--accent-teal);
+}
+
+.hero-title {
+  color: #0b1220;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+}
+
+.hero-rotator-text {
+  color: var(--accent-blue);
+}
+
+/* soften / lighten the blobs or remove by lowering opacity */
+.hero-shape {
+  opacity: 0.18;
+  filter: blur(10px);
+}
+
+/* Lighthouse beam a bit softer for daytime */
+.hero-beam {
+  opacity: 0.4;
+}
+
+/* MOBILE HERO – use same light image without dark fade */
+@media (max-width: 768px) {
+  .hero {
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.0) 55%,
+        rgba(243, 244, 246, 1) 100%
+      ),
+      url("../images/logo_light.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* =============================
+   TRUST CHIPS – LIGHT
+   ============================= */
+
+.trust-chip {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #4b5563;
+}
+
+/* =============================
+   SECTIONS – LIGHT BANDS
+   ============================= */
+
+.section.projects-section {
+  background: #f9fafb;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.section.why-section {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f3f4f6 100%
+  );
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+}
+
+.section.mobile-section {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f3f4f6
+  );
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.section.contact-section {
+  background: linear-gradient(
+    180deg,
+    #f3f4f6,
+    #e5e7eb
+  );
+  border-top: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+/* =============================
+   PROJECT CARDS – LIGHT
+   ============================= */
+
+.project-frame {
+  background: #ffffff;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+}
+
+.project-tags span {
+  background: #f3f4f6;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* =============================
+   ABOUT / REVIEWS – LIGHT
+   ============================= */
+
+.reviews-card {
+  background: #ffffff;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.review-pill {
+  background: #f3f4f6;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+/* =============================
+   FOOTER – LIGHT
+   ============================= */
+
+.site-footer {
+  background: #f3f4f6;
+  border-top: 1px solid rgba(209, 213, 219, 0.9);
+}
+
+.footer-brand,
+.footer-tagline,
+.footer-meta,
+.footer-links a {
+  color: #4b5563;
 }
