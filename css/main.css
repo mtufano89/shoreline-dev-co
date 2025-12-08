@@ -1819,6 +1819,16 @@ body {
     margin: 0 auto;
     text-align: left;
   }
+  /* HERO TEXT BACKDROP FOR MOBILE */
+@media (max-width: 768px) {
+  .hero-inner {
+    background: rgba(255, 255, 255, 0.55); /* soft white */
+    backdrop-filter: blur(8px);           /* frosted glass */
+    padding: 1.3rem 1.4rem;
+    border-radius: 18px;
+  }
+}
+
 
   .hero-title {
     font-size: 2.1rem;
