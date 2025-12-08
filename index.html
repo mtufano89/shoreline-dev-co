@@ -301,7 +301,7 @@
       <div class="mobile-media">
         <div class="mobile-phone-stack">
           <div class="phone phone-back">
-            <img src="images/mobile-home.png" alt="Mobile homepage mockup" />
+            <img src="images/mobile-hair.png"Mobile homepage mockup" />
           </div>
           <div class="phone phone-front">
             <img src="images/mobile-shop.png" alt="Mobile shop page mockup" />
@@ -460,6 +460,31 @@ const links  = document.querySelector('.nav-links');
 toggle.addEventListener('click', () => {
   links.classList.toggle('mobile-open');
 });
+// =======================================
+// WHY-SHORELINE METRICS TABS
+// =======================================
+
+const metricsTabs = document.querySelectorAll('.metrics-tab');
+const metricsPanels = document.querySelectorAll('.metrics-panel');
+
+metricsTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    // remove active from all tabs
+    metricsTabs.forEach(t => t.classList.remove('active'));
+    // remove active from all panels
+    metricsPanels.forEach(p => p.classList.remove('active'));
+
+    // activate the clicked tab
+    tab.classList.add('active');
+    // activate the panel with the same index
+    if (metricsPanels[index]) {
+      metricsPanels[index].classList.add('active');
+    }
+  });
+});
+
+
+
 
 </script>
 
