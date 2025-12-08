@@ -18,13 +18,11 @@
   --radius-lg: 18px;
   --radius-xl: 26px;
   :root {
-  /* existing stuff... */
-
-  --accent-teal: #22d3ee;
-  --accent-blue: #38bdf8;
-  --accent-sand: #fbbf77;
-}
-
+    /* existing stuff... */
+    --accent-teal: #22d3ee;
+    --accent-blue: #38bdf8;
+    --accent-sand: #fbbf77;
+  }
 }
 
 *,
@@ -44,10 +42,6 @@ body {
   background: var(--bg-dark);
   color: var(--text-main);
 }
-
-/* =============================
-   NAVBAR
-   ============================= */
 
 /* =============================
    NAVBAR
@@ -178,23 +172,65 @@ body {
   filter: brightness(1.05);
 }
 
-/* mobile: keep it simple for now */
+/* ===== HAMBURGER ICON (mobile) ===== */
+
+.nav-toggle {
+  display: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-toggle-bars {
+  width: 18px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-toggle-bars span {
+  display: block;
+  height: 2px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+/* mobile nav dropdown (class you'll toggle via JS) */
+.nav-links.mobile-open {
+  position: absolute;
+  top: 100%;
+  right: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 120;
+}
+
+/* mobile: layout tweaks */
 @media (max-width: 768px) {
   .nav {
     padding-inline: 1rem;
   }
 
   .nav-links {
-    display: none; /* mobile menu later if you want */
+    display: none;
   }
 
-  .nav-cta {
-    padding-inline: 1rem;
+  .nav-toggle {
+    display: inline-flex;
   }
 }
-
-
-
 
 /* =============================
    HERO
@@ -206,7 +242,7 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
 
-  /* 🔥 image is now the ENTIRE background */
+  /* original dark hero image (overridden by light mode below) */
   background-image:
     linear-gradient(
       to right,
@@ -219,6 +255,7 @@ body {
   background-position: left center;
   overflow: hidden;
 }
+
 /* ============ HERO ENTRANCE ============ */
 
 @keyframes fade-up-soft {
@@ -231,19 +268,17 @@ body {
     transform: translateY(0);
   }
 }
+
 /* ============================
    LIGHTHOUSE BEAM ANIMATION
 ============================ */
 
 .hero-beam {
   position: absolute;
-  /* adjust these to line up with the lighthouse top */
   left: 12%;
   top: 8%;
   width: 520px;
   height: 260px;
-
-  /* soft cone of light */
   background: conic-gradient(
     from -20deg,
     rgba(255, 255, 255, 0.0) 0deg,
@@ -251,7 +286,6 @@ body {
     rgba(248, 250, 252, 0.03) 60deg,
     rgba(0, 0, 0, 0) 80deg
   );
-
   transform-origin: left bottom;
   mix-blend-mode: screen;
   opacity: 0.75;
@@ -289,11 +323,9 @@ body {
   }
 }
 
-
 .hero-inner {
   animation: fade-up-soft 700ms ease-out 120ms both;
 }
-
 
 /* left side is now just "empty space" over the same background */
 .hero-media {
@@ -323,22 +355,6 @@ body {
   filter: blur(4px);
   pointer-events: none;
 }
-/* MOBILE: hero image becomes full background */
-@media (max-width: 768px) {
-  .hero {
-   background-image:
-  linear-gradient(to bottom, rgba(10, 20, 30, 0) 60%, rgba(10, 20, 30, 1) 100%),
-  url("../images/lighthouse-hero.png");
-background-size: contain;
-background-position: top center;
-background-repeat: no-repeat;
-
-  }
-
-  .hero-media {
-    display: none; /* hide empty left column */
-  }
-}
 
 .hero-shape-1 {
   width: 320px;
@@ -367,9 +383,6 @@ background-repeat: no-repeat;
   animation: floatSlow 34s ease-in-out infinite alternate;
 }
 
-/* (keep the hero-tag, hero-title, hero-rotator, hero-subtitle,
-   hero-ctas, hero-trust, trust-chip, @media rules from before) */
-
 @keyframes floatSlow {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(12px, -16px, 0); }
@@ -390,7 +403,6 @@ background-repeat: no-repeat;
     max-width: 100%;
   }
 }
-
 
 /* hero text + animations */
 
@@ -482,7 +494,6 @@ background-repeat: no-repeat;
   }
 }
 
-
 /* buttons */
 
 .btn {
@@ -510,9 +521,6 @@ background-repeat: no-repeat;
   box-shadow: 0 20px 50px rgba(248, 180, 75, 0.65);
 }
 
-
-
-
 /* ============ SECONDARY BUTTON — YELLOW STYLE ============ */
 
 .btn-secondary {
@@ -529,28 +537,9 @@ background-repeat: no-repeat;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Hover */
 .btn-secondary:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 40px rgba(255, 185, 60, 0.45);
-}
-
-
-/* trust chips */
-
-.hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.trust-chip {
-  font-size: 0.78rem;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  color: var(--text-muted);
 }
 
 @keyframes heroFadeUp {
@@ -568,7 +557,6 @@ background-repeat: no-repeat;
    GENERIC SECTIONS
    ============================= */
 
-/* Base section: full-width color band */
 .section {
   width: 100%;
   padding: 4.5rem 1.5rem;
@@ -576,7 +564,6 @@ background-repeat: no-repeat;
   z-index: 2;
 }
 
-/* Inner container: centers content and limits width */
 .section-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -600,6 +587,7 @@ background-repeat: no-repeat;
   color: var(--text-muted);
   font-size: 0.98rem;
 }
+
 /********************************************
   ALTERNATING SECTION BACKGROUNDS
 ********************************************/
@@ -649,8 +637,6 @@ background-repeat: no-repeat;
   );
   border-top: 1px solid rgba(255, 184, 122, 0.08);
 }
-
-
 
 /* =============================
    PROJECTS
@@ -745,9 +731,10 @@ background-repeat: no-repeat;
   margin-top: 2.8rem;
   margin-bottom: 3rem;
 }
+
 /* WHY SECTION (Dark) */
 .section.metrics-section {
-  background: rgba(10, 18, 32, 0.92); /* deep navy */
+  background: rgba(10, 18, 32, 0.92);
   border-top: 1px solid rgba(255,255,255,0.04);
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
@@ -806,7 +793,6 @@ background-repeat: no-repeat;
    MOBILE-FIRST SECTION
    ============================= */
 
-/* MOBILE SECTION FIX */
 .mobile-section {
   border-radius: 0 !important;
   overflow: visible;
@@ -818,7 +804,6 @@ background-repeat: no-repeat;
   overflow: visible;
   box-shadow: none !important;
 }
-
 
 .mobile-media {
   display: flex;
@@ -878,6 +863,7 @@ background-repeat: no-repeat;
   color: var(--text-muted);
   font-size: 0.96rem;
 }
+
 /* ============ FLOATING MOBILE MOCKUP ============ */
 
 @keyframes float-slow {
@@ -889,10 +875,10 @@ background-repeat: no-repeat;
 .mobile-phone-stack {
   animation: float-slow 10s ease-in-out infinite;
 }
+
 .phone-front {
   animation: float-slow 11s ease-in-out infinite;
 }
-
 
 /* =============================
    ABOUT / CONTACT + REVIEWS
@@ -985,6 +971,7 @@ background-repeat: no-repeat;
   background: rgba(15, 23, 42, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.6);
 }
+
 /* ============================
    MOBILE STICKY CTA
 ============================ */
@@ -1013,7 +1000,6 @@ background-repeat: no-repeat;
     font-size: 1.1rem;
   }
 }
-
 
 /* =============================
    FOOTER
@@ -1105,7 +1091,7 @@ background-repeat: no-repeat;
 
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* could add mobile nav later */
+    display: none;
   }
 
   .hero-inner {
@@ -1141,6 +1127,7 @@ background-repeat: no-repeat;
     height: 380px;
   }
 }
+
 /* ============ SCROLL REVEAL ============ */
 
 .reveal-on-scroll {
@@ -1153,30 +1140,31 @@ background-repeat: no-repeat;
   opacity: 1;
   transform: translateY(0);
 }
-/* Project title links – force white, remove default link styles */
+
+/* Project title links – blue */
 .project-meta h3 a {
-  color: #ffffff !important;       /* or whatever color your titles use */
+  color: var(--accent-blue) !important;
   text-decoration: none;
+  font-weight: 700;
 }
 
 .project-meta h3 a:hover {
   text-decoration: underline;
-  color: #ffffff !important;
+  color: var(--accent-blue) !important;
 }
+
 /* =========================================
    SHORELINE DEV CO – LIGHT MODE OVERRIDES
    ========================================= */
 
 /* Global light palette */
 :root {
-  --bg-dark: #f3f4f6;          /* page background (now light)       */
-  --bg-hero: #e5f2fa;          /* hero background tint              */
-  --bg-section: #ffffff;       /* card/section base                 */
-  --bg-section-soft: #f9fafb;  /* softer light section              */
-  --text-main: #0f172a;        /* main text color                   */
-  --text-muted: #4b5563;       /* muted/secondary text              */
-
-  /* keep your accent colors, just slightly softer */
+  --bg-dark: #f3f4f6;
+  --bg-hero: #e5f2fa;
+  --bg-section: #ffffff;
+  --bg-section-soft: #f9fafb;
+  --text-main: #0f172a;
+  --text-muted: #4b5563;
   --accent-teal: #22d3ee;
   --accent-blue: #38bdf8;
   --accent-sand: #fbbf77;
@@ -1220,20 +1208,16 @@ body {
    HERO – LIGHT + NEW IMAGE
    ============================= */
 
-/* HERO – Light Mode (Full Image Visible) */
+/* Desktop / default: full lighthouse art */
 .hero {
   background-image: url("../images/logo_light.png");
-  background-size: contain;        /* show the whole illustration */
+  background-size: contain;
   background-position: left center;
   background-repeat: no-repeat;
-
-  /* Soft background color behind the image */
-  background-color: #e6f5fc;       /* subtle light aqua/blue */
+  background-color: #e6f5fc;
 }
 
-
 .hero-right {
-  /* make sure text reads well on white */
   padding: 4rem clamp(2rem, 6vw, 4rem);
 }
 
@@ -1253,7 +1237,7 @@ body {
   color: var(--accent-blue);
 }
 
-/* soften / lighten the blobs or remove by lowering opacity */
+/* soften / lighten the blobs */
 .hero-shape {
   opacity: 0.18;
   filter: blur(10px);
@@ -1264,7 +1248,7 @@ body {
   opacity: 0.4;
 }
 
-/* MOBILE HERO – use same light image without dark fade */
+/* MOBILE HERO – show full lighthouse, no cropping */
 @media (max-width: 768px) {
   .hero {
     background-image:
@@ -1274,9 +1258,10 @@ body {
         rgba(243, 244, 246, 1) 100%
       ),
       url("../images/logo_light.png");
-    background-size: cover;
+    background-size: contain;        /* key: don't crop */
     background-position: top center;
     background-repeat: no-repeat;
+    min-height: 100vh;
   }
 }
 
@@ -1584,57 +1569,22 @@ body {
     transform: none;
   }
 }
+
 .hero-ctas .btn {
   display: inline-flex;
   align-items: center;
-  height: 52px;       /* consistent height */
-  padding: 0 1.8rem;  /* consistent horizontal padding */
+  height: 52px;
+  padding: 0 1.8rem;
 }
+
 /* =============================
    HERO SHOWCASE (RIGHT SIDE)
    ============================= */
 
 .hero {
-  position: relative; /* make sure for absolute children */
+  position: relative;
 }
 
-/* container on the right side */
-.hero-showcase {
-  position: absolute;
-  right: 5%;
-  top: 55%;
-  transform: translateY(-50%);
-  width: 320px;
-  max-width: 36vw;
-  pointer-events: auto;
-}
-
-/* soft glowing blobs behind the card */
-.hero-showcase-glow {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(32px);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.hero-showcase-glow-1 {
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle at 30% 30%, #bae6fd, transparent);
-  top: -40px;
-  left: -40px;
-}
-
-.hero-showcase-glow-2 {
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle at 70% 80%, #a5f3fc, transparent);
-  bottom: -40px;
-  right: -30px;
-}
-
-/* cards */
 /* container on the right side */
 .hero-showcase {
   position: absolute;
@@ -1674,7 +1624,7 @@ body {
 
 /* cards */
 .hero-showcase-card {
-  display: none;                 /* only active one shows */
+  display: none;
   background: #ffffff;
   border-radius: 22px;
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.22);
@@ -1682,7 +1632,6 @@ body {
   opacity: 0;
   transform: translateY(16px) scale(0.97);
   transition: opacity 0.35s ease, transform 0.35s ease;
-  display: none;
   flex-direction: column;
   z-index: 1;
 }
@@ -1694,9 +1643,10 @@ body {
   animation: heroShowcaseFloat 10s ease-in-out infinite;
 }
 
+/* slightly taller image to feel bigger */
 .hero-showcase-card img {
   width: 100%;
-  height: 210px;
+  height: 230px;
   object-fit: cover;
   display: block;
 }
@@ -1748,26 +1698,29 @@ body {
   width: 22px;
   background: linear-gradient(135deg, #0ea5e9, #22c55e);
 }
+
+/* Featured projects on tablet/phone – make the card wider */
 @media (max-width: 960px) {
   .hero-showcase {
     position: static;
     transform: none;
     margin: 2.2rem auto 0;
-    width: min(360px, 100%);
+    width: 100%;
+    max-width: 420px;
   }
 }
+
 .hero-showcase-heading {
   position: relative;
   z-index: 1;
   margin: 0 0 1rem;
-  font-size: 1.25rem;                 /* bigger */
-  font-weight: 800;                   /* bolder */
+  font-size: 1.25rem;
+  font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #0ea5e9;                     /* bright accent blue */
+  color: #0ea5e9;
 }
 
-/* optional soft glow underline */
 .hero-showcase-heading::after {
   content: "";
   position: absolute;
@@ -1798,6 +1751,7 @@ body {
     margin-top: 1.5rem;
   }
 }
+
 /* =============================
    HERO WATER SWIRLS
    ============================= */
@@ -1808,10 +1762,9 @@ body {
   pointer-events: none;
   mix-blend-mode: screen;
   opacity: 0.95;
-  z-index: -1; /* sits behind glows + card */
+  z-index: -1;
 }
 
-/* big soft ring behind the card */
 .hero-water-1 {
   width: 360px;
   height: 360px;
@@ -1825,7 +1778,6 @@ body {
   animation: waterSwirl 26s linear infinite;
 }
 
-/* smaller offset swirl for depth */
 .hero-water-2 {
   width: 260px;
   height: 260px;
@@ -1839,7 +1791,6 @@ body {
   animation: waterSwirlReverse 32s linear infinite;
 }
 
-/* slow rotating swirl effect */
 @keyframes waterSwirl {
   0%   { transform: rotate(0deg) scale(1); }
   50%  { transform: rotate(180deg) scale(1.03); }
@@ -1851,14 +1802,110 @@ body {
   50%  { transform: rotate(-180deg) scale(1.04); }
   100% { transform: rotate(-360deg) scale(1); }
 }
-.project-meta h3 a {
-  color: var(--accent-blue) !important;
-  text-decoration: none;
-  font-weight: 700;
+
+/* ===== MOBILE HERO TWEAKS (layout only, keep background from above) ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 4.5rem;           /* space under sticky nav */
+  }
+
+  .hero-right {
+    padding: 3rem 1.5rem 2.5rem;
+    justify-content: flex-start;
+  }
+
+  .hero-inner {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 0.96rem;
+    max-width: 100%;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-shape {
+    opacity: 0.08;
+    filter: blur(14px);
+  }
 }
 
-.project-meta h3 a:hover {
-  text-decoration: underline;
-  color: var(--accent-blue) !important;
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
 }
 
+/* Featured projects – mobile sizing refinements */
+@media (max-width: 768px) {
+  .hero-showcase {
+    margin: 1.8rem auto 0;
+    width: 100%;
+    max-width: 420px;
+    padding-inline: 1rem;
+  }
+
+  .hero-showcase-heading {
+    text-align: left;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-showcase-card img {
+    height: 210px;
+  }
+}
+
+/* General mobile section spacing */
+@media (max-width: 768px) {
+  .section {
+    padding: 3.25rem 1.25rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-inner,
+  .mobile-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-side {
+    justify-content: flex-start;
+  }
+
+  .reviews-card {
+    max-width: 100%;
+  }
+}

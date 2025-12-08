@@ -27,6 +27,14 @@
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+  <div class="nav-toggle-bars">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
+
 
       <a href="https://forms.gle/XvZXHsfCzJQLD2yS8" class="nav-cta">Build Your Site Today</a>
     </div>
@@ -436,6 +444,8 @@ document.addEventListener("DOMContentLoaded", function () {
         showCard(index);
       });
     });
+  
+
 
     // auto-rotate every 6 seconds
     setInterval(() => {
@@ -444,6 +454,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 6000);
   }
 });
+const toggle = document.querySelector('.nav-toggle');
+const links  = document.querySelector('.nav-links');
+
+toggle.addEventListener('click', () => {
+  links.classList.toggle('mobile-open');
+});
+
 </script>
 
 </body>
