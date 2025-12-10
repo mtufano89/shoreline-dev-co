@@ -2179,3 +2179,203 @@ body {
   color: var(--text-muted);
   margin-bottom: 0.35rem;
 }
+
+/* ===========================
+   PRICING PAGE CLEAN RESET
+   SAFE + ISOLATED
+=========================== */
+
+.pricing-section {
+  background: linear-gradient(180deg, #f3f7fb, #ffffff);
+  padding: 4rem 1rem;
+}
+
+.pricing-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pricing-card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.pricing-card .price-main {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pricing-card .price-note {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.pricing-card ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+  line-height: 1.45;
+}
+
+.pricing-card .btn-primary {
+  width: fit-content;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+/* FEATURED MID CARD */
+.tier-business {
+  border: 2px solid #38bdf8;
+  box-shadow: 0 14px 34px rgba(56,189,248,0.25);
+  transform: translateY(-10px);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: #38bdf8;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* MOBILE */
+@media (max-width: 960px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-business {
+    transform: translateY(0);
+  }
+}
+/* ===========================
+   PRICING REFINEMENTS
+   =========================== */
+
+/* Stronger intro text */
+.pricing-intro {
+  max-width: 720px;
+  margin: 2.75rem auto 3rem;
+  text-align: center;
+}
+
+.pricing-intro h2 {
+  margin: 0 0 0.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pricing-intro p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+/* Make the featured (Most Popular) card really stand out */
+.tier-business {
+  border-color: transparent;
+  background: linear-gradient(135deg, #041423, #0b1a2f);
+  color: #f9fafb;
+  box-shadow: 0 20px 46px rgba(15, 23, 42, 0.45);
+}
+
+.tier-business h3 {
+  color: #ffffff;
+}
+
+.tier-business .price-main {
+  color: #ffffff;
+}
+
+.tier-business .price-note {
+  color: #cbd5f5;
+}
+
+.tier-business ul {
+  color: #e5e7eb;
+}
+
+/* Yellow-ish CTA on the dark card */
+.tier-business .btn-primary {
+  background: linear-gradient(135deg, #fff0b7, #ffe08a);
+  color: #111827;
+}
+
+/* Badge sits a bit higher */
+.tier-business .badge {
+  top: -14px;
+  right: 18px;
+  background: linear-gradient(135deg, #22d3ee, #38bdf8);
+}
+
+/* Add-ons: full-width bar under the 3 plans */
+.tier-addons {
+  grid-column: 1 / -1;              /* span all 3 columns */
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+  padding: 1.6rem 2rem;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.tier-addons h3 {
+  margin-top: 0;
+}
+
+.tier-addons .feature-list {
+  margin-bottom: 0;
+}
+/* ===========================
+   Pricing intro highlight line
+   =========================== */
+
+.pricing-intro p {
+  display: inline-block;
+  background: linear-gradient(90deg, #eef7ff 0%, #f9fbff 100%);
+  padding: 0.9rem 1.4rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  border: 1px solid rgba(180, 200, 225, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 40, 90, 0.08);
+  line-height: 1.45;
+}
+.pricing-intro p {
+  position: relative;
+}
+
+.pricing-intro p::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(var(--accent-teal), var(--accent-blue));
+  border-radius: 6px;
+}
