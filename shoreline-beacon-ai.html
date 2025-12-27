@@ -765,8 +765,7 @@
             showLoading();
 
             try {
-                const response = await fetch('https://beacon-ai-server.onrender.com/api/generate-mockup', {
-                    method: 'POST',
+const response = await fetch('https://beacon-ai-vercel.vercel.app/api/generate-mockup', {                    method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
