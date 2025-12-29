@@ -173,7 +173,12 @@
       </p>
     </div>
 
-    <div class="projects-grid">
+    <!-- Carousel container -->
+    <div class="projects-carousel-wrapper">
+      <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">‹</button>
+      <button class="carousel-btn carousel-btn-next" aria-label="Next project">›</button>
+      
+      <div class="projects-carousel">
       <!-- Project 1 -->
       <article class="project-card">
         <div class="project-frame project-frame-blue">
@@ -275,6 +280,16 @@
         </div>
       </article>
 
+      </div>
+    </div>
+
+    <!-- Scroll indicators -->
+    <div class="carousel-dots">
+      <span class="carousel-dot active" data-index="0"></span>
+      <span class="carousel-dot" data-index="1"></span>
+      <span class="carousel-dot" data-index="2"></span>
+      <span class="carousel-dot" data-index="3"></span>
+      <span class="carousel-dot" data-index="4"></span>
     </div>
   </div>
     
@@ -704,6 +719,78 @@ metricsTabs.forEach((tab, index) => {
       }
     });
   });
+
+  // =========================
+  // PROJECTS CAROUSEL
+  // =========================
+  const carousel = document.querySelector('.projects-carousel');
+  const prevBtn = document.querySelector('.carousel-btn-prev');
+  const nextBtn = document.querySelector('.carousel-btn-next');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const cards = document.querySelectorAll('.projects-carousel .project-card');
+  
+  if (carousel && prevBtn && nextBtn && dots.length && cards.length) {
+    let currentIndex = 0;
+    
+    function updateCarousel() {
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 32; // 2rem gap
+      const scrollPosition = currentIndex * (cardWidth + gap);
+      
+      carousel.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    // Next button
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < cards.length - 1) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+    
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+    
+    // Track scroll position to update dots
+    let scrollTimeout;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 32;
+        const scrollLeft = carousel.scrollLeft;
+        const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+        
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+          currentIndex = newIndex;
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+      }, 100);
+    });
+  }
 
 
 
