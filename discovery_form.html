@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Discovery Form - Shoreline Dev Co.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e6f5fc 0%, #f3f7fb 100%);
+      color: #0f172a;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-content {
+      padding: 40px 30px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(34, 211, 238, 0.15));
+      border-left: 4px solid #38bdf8;
+      border-radius: 8px;
+    }
+
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .helper-text {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .checkbox-group,
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-item,
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checkbox-item:hover,
+    .radio-item:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .checkbox-item input[type="checkbox"],
+    .radio-item input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #38bdf8;
+    }
+
+    .checkbox-item label,
+    .radio-item label {
+      margin: 0;
+      font-weight: 500;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .inline-checkboxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .inline-checkboxes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .submit-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #ffd46b, #ffb632);
+      color: #0c1220;
+      border: none;
+      padding: 16px 48px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(255, 185, 60, 0.35);
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(255, 185, 60, 0.5);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .closing-text {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .closing-text strong {
+      color: #0f172a;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .required {
+      color: #ef4444;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #38bdf8, #22d3ee);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Loading state */
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Success message */
+    .success-message {
+      display: none;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .form-content {
+        padding: 30px 20px;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🏖️ Website Discovery Form</h1>
+      <p>This quick form (5-10 minutes) helps us understand exactly what you need so we can create the perfect website for your business.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="discoveryForm" class="form-content" action="https://formsubmit.co/support@shorelinedevco.com" method="POST">
+      <!-- Hidden fields for FormSubmit.co -->
+      <input type="hidden" name="_subject" value="New Website Discovery Form Submission">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+      <!-- Section 1: Business Information -->
+      <div class="section">
+        <h2 class="section-title">1. Business Information</h2>
+        
+        <div class="field-group">
+          <label for="businessName">Business Name <span class="required">*</span></label>
+          <input type="text" id="businessName" name="Business Name" required>
+        </div>
+
+        <div class="field-group">
+          <label for="businessDescription">What does your business do? <span class="required">*</span></label>
+          <textarea id="businessDescription" name="Business Description" rows="3" placeholder="In 1-2 sentences, tell us what you do..." required></textarea>
+        </div>
+
+        <div class="field-group">
+          <label for="idealCustomer">Ideal Customer <span class="required">*</span></label>
+          <input type="text" id="idealCustomer" name="Ideal Customer" placeholder="e.g., Local homeowners, Young professionals, Small businesses..." required>
+        </div>
+
+        <div class="field-group">
+          <label>Do you have a logo?</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="logoYes" name="Logo Status" value="I have a logo (will send PNG)">
+              <label for="logoYes">I have a logo (will send PNG)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="logoNo" name="Logo Status" value="I need a logo created">
+              <label for="logoNo">I need a logo created</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Primary Goal -->
+      <div class="section">
+        <h2 class="section-title">2. Primary Website Goal</h2>
+        
+        <div class="field-group">
+          <label>What's the main action you want visitors to take? <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="goalCalls" name="Primary Goal" value="Get calls" required>
+              <label for="goalCalls">Get calls</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="goalBookings" name="Primary Goal" value="Get bookings">
+              <label for="goalBookings">Get bookings</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="goalInquiries" name="Primary Goal" value="Capture inquiries/messages">
+              <label for="goalInquiries">Capture inquiries/messages</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="goalDisplay" name="Primary Goal" value="Display services/pricing">
+              <label for="goalDisplay">Display services/pricing</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="goalCredibility" name="Primary Goal" value="Build credibility">
+              <label for="goalCredibility">Build credibility/online presence</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Timeline -->
+      <div class="section">
+        <h2 class="section-title">3. Timeline</h2>
+        
+        <div class="field-group">
+          <label>When do you need the website live? <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="timelineASAP" name="Timeline" value="ASAP (rush fee may apply)" required>
+              <label for="timelineASAP">ASAP (rush fee may apply)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="timeline23" name="Timeline" value="2-3 weeks">
+              <label for="timeline23">2-3 weeks</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="timeline46" name="Timeline" value="4-6 weeks">
+              <label for="timeline46">4-6 weeks</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="timelineFlexible" name="Timeline" value="Flexible">
+              <label for="timelineFlexible">Flexible</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Package -->
+      <div class="section">
+        <h2 class="section-title">4. Package Selection <span class="badge">Optional</span></h2>
+        
+        <div class="field-group">
+          <label>Which package fits your needs?</label>
+          <p class="helper-text">This helps us recommend the right fit for your budget and goals.</p>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="packageStarter" name="Package" value="Starter ($399) - Simple 3-page site">
+              <label for="packageStarter"><strong>Starter ($399)</strong> - Simple 3-page site</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="packageBusiness" name="Package" value="Business ($699) - 5-page site with advanced features">
+              <label for="packageBusiness"><strong>Business ($699)</strong> - 5-page site with advanced features</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="packagePremium" name="Package" value="Premium ($999) - Full-featured site with booking/e-commerce">
+              <label for="packagePremium"><strong>Premium ($999)</strong> - Full-featured site with booking/e-commerce integration</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="packageUnsure" name="Package" value="Not sure yet">
+              <label for="packageUnsure">Not sure yet</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Required Pages -->
+      <div class="section">
+        <h2 class="section-title">5. Required Pages</h2>
+        
+        <div class="field-group">
+          <label>Which pages do you need? (check all that apply)</label>
+          <div class="inline-checkboxes">
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageHome" name="Pages" value="Home">
+              <label for="pageHome">Home</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageAbout" name="Pages" value="About">
+              <label for="pageAbout">About</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageServices" name="Pages" value="Services/Pricing">
+              <label for="pageServices">Services/Pricing</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageContact" name="Pages" value="Contact">
+              <label for="pageContact">Contact</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageGallery" name="Pages" value="Gallery/Portfolio">
+              <label for="pageGallery">Gallery/Portfolio</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageTestimonials" name="Pages" value="Testimonials">
+              <label for="pageTestimonials">Testimonials</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pageFAQ" name="Pages" value="FAQ">
+              <label for="pageFAQ">FAQ</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="otherPages">Other pages needed?</label>
+          <input type="text" id="otherPages" name="Other Pages" placeholder="e.g., Blog, Events, Careers...">
+        </div>
+      </div>
+
+      <!-- Section 6: Design Style -->
+      <div class="section">
+        <h2 class="section-title">6. Design Style</h2>
+        
+        <div class="field-group">
+          <label>Choose 1-2 styles that fit best:</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="styleModern" name="Design Style" value="Modern & Clean">
+              <label for="styleModern">Modern & Clean</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="styleMinimal" name="Design Style" value="Minimal & Neutral">
+              <label for="styleMinimal">Minimal & Neutral</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="styleBold" name="Design Style" value="Bold & Energetic">
+              <label for="styleBold">Bold & Energetic</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="styleLuxury" name="Design Style" value="Luxury/Premium">
+              <label for="styleLuxury">Luxury/Premium</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="styleFriendly" name="Design Style" value="Friendly/Playful">
+              <label for="styleFriendly">Friendly/Playful</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="styleNotes">Specific design notes?</label>
+          <textarea id="styleNotes" name="Design Notes" rows="2" placeholder="Any specific design preferences or things to avoid..."></textarea>
+        </div>
+      </div>
+
+      <!-- Section 7: Colors -->
+      <div class="section">
+        <h2 class="section-title">7. Colors</h2>
+        
+        <div class="field-group">
+          <label for="brandColors">Brand colors (if known)</label>
+          <input type="text" id="brandColors" name="Brand Colors" placeholder="e.g., Navy blue, Gold, White">
+        </div>
+
+        <div class="field-group">
+          <label for="avoidColors">Colors to avoid?</label>
+          <input type="text" id="avoidColors" name="Colors to Avoid" placeholder="e.g., Bright pink, Neon green">
+        </div>
+      </div>
+
+      <!-- Section 8: Images -->
+      <div class="section">
+        <h2 class="section-title">8. Images</h2>
+        
+        <div class="field-group">
+          <label>Image plan:</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="imagesOwn" name="Images" value="I have photos to use">
+              <label for="imagesOwn">I have photos to use</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="imagesStock" name="Images" value="Use stock images">
+              <label for="imagesStock">Use stock images</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="imagesMix" name="Images" value="Mix of both">
+              <label for="imagesMix">Mix of both</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="imageNotes">Notes about images:</label>
+          <input type="text" id="imageNotes" name="Image Notes" placeholder="Any specific image needs or requirements...">
+        </div>
+      </div>
+
+      <!-- Section 9: Features -->
+      <div class="section">
+        <h2 class="section-title">9. Must-Have Features</h2>
+        
+        <div class="field-group">
+          <label>Which features do you need? (check all that apply)</label>
+          <div class="inline-checkboxes">
+            <div class="checkbox-item">
+              <input type="checkbox" id="featureCall" name="Features" value="Click-to-call button">
+              <label for="featureCall">Click-to-call button</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featureBooking" name="Features" value="Online booking">
+              <label for="featureBooking">Online booking</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featureContact" name="Features" value="Contact form">
+              <label for="featureContact">Contact form</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featurePricing" name="Features" value="Service/pricing list">
+              <label for="featurePricing">Service/pricing list</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featureGallery" name="Features" value="Gallery">
+              <label for="featureGallery">Gallery</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featureTestimonials" name="Features" value="Testimonials section">
+              <label for="featureTestimonials">Testimonials section</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="featurePayment" name="Features" value="Payment links">
+              <label for="featurePayment">Payment links</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="otherFeatures">Other features needed?</label>
+          <input type="text" id="otherFeatures" name="Other Features" placeholder="e.g., Live chat, Map, Social media feed...">
+        </div>
+      </div>
+
+      <!-- Section 10: Content Writing -->
+      <div class="section">
+        <h2 class="section-title">10. Content Writing</h2>
+        
+        <div class="field-group">
+          <label>Content/copywriting needs:</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="contentOwn" name="Content Writing" value="I will provide all text/wording">
+              <label for="contentOwn">I will provide all text/wording for the site</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="contentFull" name="Content Writing" value="Need help writing website copy (+$150)">
+              <label for="contentFull">I need help writing website copy (+$150 add-on)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="contentPartial" name="Content Writing" value="Have some content, need help finishing (+$75)">
+              <label for="contentPartial">I have some content but need help finishing it (+$75 add-on)</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11: Examples -->
+      <div class="section">
+        <h2 class="section-title">11. Example Websites</h2>
+        
+        <div class="field-group">
+          <label for="exampleSite1">Website you like (example 1):</label>
+          <input type="text" id="exampleSite1" name="Example Website 1" placeholder="https://...">
+        </div>
+
+        <div class="field-group">
+          <label for="exampleSite2">Website you like (example 2):</label>
+          <input type="text" id="exampleSite2" name="Example Website 2" placeholder="https://...">
+        </div>
+
+        <div class="field-group">
+          <label for="exampleNotes">What do you like about them?</label>
+          <textarea id="exampleNotes" name="What You Like About Examples" rows="2" placeholder="e.g., Clean layout, Easy navigation, Great colors..."></textarea>
+        </div>
+      </div>
+
+      <!-- Section 12: SEO -->
+      <div class="section">
+        <h2 class="section-title">12. SEO Setup</h2>
+        
+        <div class="field-group">
+          <label>SEO (Search Engine Optimization):</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="seoYes" name="SEO Setup" value="Include Basic SEO Setup (+$100)">
+              <label for="seoYes">Include Basic SEO Setup Add-On (+$100)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="seoNo" name="SEO Setup" value="Not needed">
+              <label for="seoNo">Not needed</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 13: Hosting -->
+      <div class="section">
+        <h2 class="section-title">13. Hosting</h2>
+        
+        <div class="field-group">
+          <label>Hosting needs:</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="hostingNeed" name="Hosting" value="I need hosting setup ($15-20/month)">
+              <label for="hostingNeed">I need hosting setup ($15-20/month, billed separately)</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="hostingHave" name="Hosting" value="I already have hosting">
+              <label for="hostingHave">I already have hosting</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="hostingAdvise" name="Hosting" value="Not sure - please advise">
+              <label for="hostingAdvise">Not sure - please advise</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 14: Referral -->
+      <div class="section">
+        <h2 class="section-title">14. How Did You Hear About Us?</h2>
+        
+        <div class="field-group">
+          <label>Referral source:</label>
+          <div class="radio-group">
+            <div class="radio-item">
+              <input type="radio" id="sourceGoogle" name="Referral Source" value="Google Search">
+              <label for="sourceGoogle">Google Search</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="sourceSocial" name="Referral Source" value="Facebook/Social Media">
+              <label for="sourceSocial">Facebook/Social Media</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="sourceNextdoor" name="Referral Source" value="Nextdoor">
+              <label for="sourceNextdoor">Nextdoor</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="referralName">Referred by someone? (enter name)</label>
+          <input type="text" id="referralName" name="Referred By" placeholder="Name of person who referred you...">
+        </div>
+
+        <div class="field-group">
+          <label for="sourceOther">Other source:</label>
+          <input type="text" id="sourceOther" name="Other Source" placeholder="How else did you find us?">
+        </div>
+      </div>
+
+      <!-- Section 15: Final Notes -->
+      <div class="section">
+        <h2 class="section-title">15. Final Notes / Special Requests</h2>
+        
+        <div class="field-group">
+          <label for="finalNotes">Anything else we should know?</label>
+          <textarea id="finalNotes" name="Final Notes" rows="4" placeholder="Share any additional details, questions, or special requests..."></textarea>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="section">
+        <h2 class="section-title">Your Contact Information</h2>
+        
+        <div class="field-group">
+          <label for="clientName">Your Name <span class="required">*</span></label>
+          <input type="text" id="clientName" name="Client Name" required>
+        </div>
+
+        <div class="field-group">
+          <label for="clientEmail">Email Address <span class="required">*</span></label>
+          <input type="email" id="clientEmail" name="Client Email" required>
+        </div>
+
+        <div class="field-group">
+          <label for="clientPhone">Phone Number</label>
+          <input type="text" id="clientPhone" name="Client Phone" placeholder="(optional but helpful for quick questions)">
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-section">
+        <button type="submit" class="submit-btn">Submit Discovery Form →</button>
+        <p class="closing-text">
+          <strong>Thank you!</strong> We'll review your responses and send you a custom proposal within 24 hours.
+        </p>
+        <p class="contact-info">
+          Questions? Call/text <strong>203-689-3368</strong> or email <strong>support@shorelinedevco.com</strong>
+        </p>
+        <div id="successMessage" class="success-message">
+          ✓ Form submitted successfully! We'll be in touch soon.
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Simple form submission handler
+    const form = document.getElementById('discoveryForm');
+    const successMessage = document.getElementById('successMessage');
+    
+    form.addEventListener('submit', function(e) {
+      // FormSubmit.co will handle the actual submission
+      // Just show success message after a delay
+      setTimeout(() => {
+        successMessage.classList.add('show');
+      }, 1000);
+    });
+
+    // Auto-scroll to top on page load
+    window.scrollTo(0, 0);
+  </script>
+</body>
+</html>
