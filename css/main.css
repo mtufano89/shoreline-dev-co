@@ -2036,12 +2036,32 @@ body::after {
   }
   
   .contact-grid {
-    grid-template-columns: 1fr;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     gap: 1.5rem;
   }
   
+  .contact-card {
+    order: 1;
+  }
+  
   .contact-map {
-    min-height: 300px;
+    order: 2;
+    min-height: 400px;
+    height: 400px;
+  }
+  
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .about-content {
+    margin-bottom: 2rem;
+  }
+  
+  .about-inner {
+    display: flex;
+    flex-direction: column;
   }
 }
 
