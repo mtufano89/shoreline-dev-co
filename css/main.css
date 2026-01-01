@@ -67,6 +67,7 @@ body {
 }
 
 /* Global Electric Background Effect - Lighter */
+/* Circuit Board Grid Pattern - Thin Lines */
 body::before {
   content: '';
   position: fixed;
@@ -75,15 +76,61 @@ body::before {
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(rgba(100, 200, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 200, 255, 0.08) 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: 0.6;
+    /* Horizontal circuit traces */
+    repeating-linear-gradient(0deg, 
+      transparent 0px, 
+      transparent 80px,
+      rgba(100, 200, 255, 0.15) 80px,
+      rgba(120, 210, 255, 0.2) 80.5px,
+      rgba(100, 200, 255, 0.15) 81px,
+      transparent 81px,
+      transparent 160px
+    ),
+    /* Vertical circuit traces */
+    repeating-linear-gradient(90deg, 
+      transparent 0px, 
+      transparent 100px,
+      rgba(80, 180, 255, 0.12) 100px,
+      rgba(100, 200, 255, 0.18) 100.5px,
+      rgba(80, 180, 255, 0.12) 101px,
+      transparent 101px,
+      transparent 200px
+    ),
+    /* Diagonal circuit traces */
+    repeating-linear-gradient(45deg, 
+      transparent 0px, 
+      transparent 150px,
+      rgba(150, 220, 255, 0.08) 150px,
+      rgba(170, 230, 255, 0.12) 150.5px,
+      rgba(150, 220, 255, 0.08) 151px,
+      transparent 151px,
+      transparent 300px
+    ),
+    repeating-linear-gradient(-45deg, 
+      transparent 0px, 
+      transparent 130px,
+      rgba(110, 205, 255, 0.1) 130px,
+      rgba(130, 215, 255, 0.15) 130.5px,
+      rgba(110, 205, 255, 0.1) 131px,
+      transparent 131px,
+      transparent 260px
+    );
+  opacity: 0.7;
   pointer-events: none;
   z-index: 0;
+  animation: circuitFlow1 40s linear infinite;
 }
 
-/* Animated Electric Lines - Lighter and More Varied */
+@keyframes circuitFlow1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Animated Circuit Lines - Flowing Effect */
 body::after {
   content: '';
   position: fixed;
@@ -91,33 +138,71 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(45deg, transparent 48%, rgba(100, 200, 255, 0.15) 49%, rgba(100, 200, 255, 0.15) 51%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, rgba(0, 212, 255, 0.12) 49%, rgba(0, 212, 255, 0.12) 51%, transparent 52%),
-    linear-gradient(30deg, transparent 49%, rgba(150, 220, 255, 0.08) 49.5%, rgba(150, 220, 255, 0.08) 50.5%, transparent 51%),
-    linear-gradient(-60deg, transparent 49%, rgba(80, 180, 255, 0.1) 49.5%, rgba(80, 180, 255, 0.1) 50.5%, transparent 51%);
-  background-size: 600px 600px, 800px 800px, 400px 400px, 700px 700px;
+  background-image:
+    /* Additional flowing lines at different angles */
+    repeating-linear-gradient(30deg, 
+      transparent 0px, 
+      transparent 180px,
+      rgba(120, 210, 255, 0.1) 180px,
+      rgba(140, 220, 255, 0.18) 180.5px,
+      rgba(120, 210, 255, 0.1) 181px,
+      transparent 181px,
+      transparent 360px
+    ),
+    repeating-linear-gradient(-60deg, 
+      transparent 0px, 
+      transparent 140px,
+      rgba(90, 190, 255, 0.12) 140px,
+      rgba(110, 205, 255, 0.2) 140.5px,
+      rgba(90, 190, 255, 0.12) 141px,
+      transparent 141px,
+      transparent 280px
+    ),
+    repeating-linear-gradient(60deg, 
+      transparent 0px, 
+      transparent 200px,
+      rgba(130, 215, 255, 0.09) 200px,
+      rgba(150, 225, 255, 0.14) 200.5px,
+      rgba(130, 215, 255, 0.09) 201px,
+      transparent 201px,
+      transparent 400px
+    );
   opacity: 0.5;
-  animation: electricFlow 25s linear infinite, electricFlow2 20s linear infinite reverse;
   pointer-events: none;
   z-index: 0;
+  animation: circuitFlow2 35s linear infinite reverse;
 }
 
-@keyframes electricFlow2 {
+@keyframes circuitFlow2 {
   0% {
-    background-position: 0 0, 0 0, 0 0, 0 0;
+    transform: translate(0, 0);
   }
   100% {
-    background-position: 600px 600px, 800px 800px, 400px 400px, 700px 700px;
+    transform: translate(-30px, 30px);
   }
 }
 
 @keyframes electricFlow {
   0% {
-    background-position: 0 0, 0 0;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
   }
   100% {
-    background-position: 800px 800px, -800px 800px;
+    opacity: 0.5;
+  }
+}
+
+@keyframes electricFlow2 {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.4;
   }
 }
 
@@ -126,16 +211,16 @@ body::after {
    ============================= */
 
 .site-header {
-  position: fixed;
+  position: absolute; /* Changed from fixed - won't stick when scrolling */
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent; /* No background - let hero show through */
+  background: transparent;
   backdrop-filter: none;
   border-bottom: none;
   box-shadow: none;
-  padding-bottom: 80px; /* Extra space for bigger overlapping logo */
+  padding-bottom: 80px;
 }
 
 .nav {
@@ -167,7 +252,7 @@ body::after {
 }
 
 .nav-logo img {
-  height: 150px; /* Bigger logo */
+  height: 180px; /* Bigger logo */
   width: auto;
   display: block;
   filter: drop-shadow(0 0 25px rgba(0, 183, 255, 0.8)) drop-shadow(0 0 50px rgba(0, 212, 255, 0.4));
@@ -281,52 +366,55 @@ body::after {
   overflow: hidden;
 }
 
-/* Animated Glow Orbs - Lighter */
+/* Circuit Connection Nodes - Small Glowing Dots */
 .hero::before {
   content: '';
   position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(100, 200, 255, 0.25) 0%, transparent 70%);
-  animation: orbFloat1 20s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  background-image:
+    /* Small circuit nodes */
+    radial-gradient(circle 3px at 15% 25%, rgba(150, 220, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 25% 40%, rgba(100, 200, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(circle 4px at 85% 20%, rgba(120, 210, 255, 1) 50%, transparent 50%),
+    radial-gradient(circle 2px at 75% 35%, rgba(80, 180, 255, 0.85) 50%, transparent 50%),
+    radial-gradient(circle 3px at 20% 70%, rgba(110, 205, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 10% 55%, rgba(90, 190, 255, 0.75) 50%, transparent 50%),
+    radial-gradient(circle 4px at 90% 75%, rgba(130, 215, 255, 0.95) 50%, transparent 50%),
+    radial-gradient(circle 3px at 80% 60%, rgba(100, 200, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(circle 5px at 50% 45%, rgba(150, 220, 255, 1) 50%, transparent 50%),
+    radial-gradient(circle 2px at 60% 30%, rgba(120, 210, 255, 0.85) 50%, transparent 50%),
+    radial-gradient(circle 3px at 40% 65%, rgba(100, 200, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 30% 80%, rgba(110, 205, 255, 0.8) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.9)) drop-shadow(0 0 15px rgba(120, 210, 255, 0.5));
+  animation: nodesGlow 3s ease-in-out infinite;
   pointer-events: none;
+  z-index: 1;
 }
 
+@keyframes nodesGlow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Subtle connection hints - not full lines */
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(150, 220, 255, 0.2) 0%, transparent 70%);
-  animation: orbFloat2 18s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  background: none;
+  opacity: 0;
   pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes orbFloat1 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(100px, -50px) scale(1.2);
-    opacity: 0.8;
-  }
-}
 
-@keyframes orbFloat2 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(-80px, 60px) scale(1.15);
-    opacity: 0.75;
-  }
-}
 
 .hero-right {
   position: relative;
@@ -336,54 +424,74 @@ body::after {
   z-index: 2;
 }
 
-/* Electric Light Streaks - Lighter and More Visible */
+/* Electric Connection Lines - Between Nodes */
 .hero-right::before {
   content: '';
   position: absolute;
   top: 20%;
-  right: -10%;
-  width: 800px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.6), rgba(0, 212, 255, 0.8), transparent);
-  box-shadow: 0 0 25px rgba(100, 200, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.4);
-  opacity: 0.8;
-  animation: electricStreak1 10s ease-in-out infinite;
+  right: 15%;
+  width: 300px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(150, 220, 255, 0) 0%, 
+    rgba(150, 220, 255, 0.4) 10%,
+    rgba(100, 200, 255, 0.8) 50%, 
+    rgba(150, 220, 255, 0.4) 90%,
+    rgba(150, 220, 255, 0) 100%);
+  box-shadow: 
+    0 0 15px rgba(100, 200, 255, 0.8),
+    0 0 30px rgba(120, 210, 255, 0.5);
+  opacity: 0.9;
+  animation: connectionFlow1 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .hero-right::after {
   content: '';
   position: absolute;
   bottom: 30%;
-  left: -10%;
-  width: 700px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(150, 220, 255, 0.5), rgba(0, 183, 255, 0.7), transparent);
-  box-shadow: 0 0 20px rgba(150, 220, 255, 0.5), 0 0 40px rgba(0, 183, 255, 0.3);
-  opacity: 0.7;
-  animation: electricStreak2 12s ease-in-out infinite;
+  left: 10%;
+  width: 250px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(120, 210, 255, 0) 0%, 
+    rgba(120, 210, 255, 0.35) 10%,
+    rgba(80, 180, 255, 0.7) 50%, 
+    rgba(120, 210, 255, 0.35) 90%,
+    rgba(120, 210, 255, 0) 100%);
+  box-shadow: 
+    0 0 12px rgba(80, 180, 255, 0.7),
+    0 0 25px rgba(100, 200, 255, 0.4);
+  opacity: 0.85;
+  animation: connectionFlow2 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
 }
 
-@keyframes electricStreak1 {
+@keyframes connectionFlow1 {
   0%, 100% {
-    transform: translateX(0) scaleX(1);
-    opacity: 0.4;
+    transform: scaleX(1);
+    opacity: 0.6;
   }
   50% {
-    transform: translateX(-120px) scaleX(1.3);
-    opacity: 0.8;
+    transform: scaleX(1.3);
+    opacity: 1;
   }
 }
 
-@keyframes electricStreak2 {
+@keyframes connectionFlow2 {
   0%, 100% {
-    transform: translateX(0) scaleX(1);
-    opacity: 0.3;
+    transform: scaleX(1);
+    opacity: 0.5;
   }
   50% {
-    transform: translateX(100px) scaleX(1.2);
-    opacity: 0.7;
+    transform: scaleX(1.25);
+    opacity: 0.95;
   }
 }
+
+
 
 .hero-inner {
   max-width: 520px;
@@ -1810,11 +1918,25 @@ body::after {
   border-color: rgba(0, 212, 255, 0.5);
 }
 
+/* Highlighted Business Tier - Lighter Blue */
 .tier-business {
-  background: linear-gradient(135deg, var(--tech-card-bg), var(--tech-navy));
+  background: linear-gradient(135deg, 
+    rgba(0, 120, 200, 0.3), 
+    rgba(0, 160, 230, 0.25)
+  );
   border: 2px solid var(--tech-electric-blue);
-  box-shadow: 0 15px 50px rgba(0, 183, 255, 0.4);
-  transform: translateY(-10px);
+  box-shadow: 
+    0 20px 60px rgba(0, 183, 255, 0.5),
+    inset 0 0 60px rgba(0, 183, 255, 0.1);
+  transform: scale(1.05);
+  position: relative;
+}
+
+.tier-business:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 
+    0 25px 70px rgba(0, 183, 255, 0.6),
+    inset 0 0 80px rgba(0, 183, 255, 0.15);
 }
 
 .pricing-badge {
