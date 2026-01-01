@@ -753,6 +753,16 @@
       if (toggle && links) {
         toggle.addEventListener('click', () => {
           links.classList.toggle('mobile-open');
+          toggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            links.classList.remove('mobile-open');
+            toggle.classList.remove('active');
+          });
         });
       }
 
