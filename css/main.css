@@ -14,9 +14,11 @@
   --tech-cyan: #00d4ff;
   --tech-glow-blue: rgba(0, 183, 255, 0.4);
   --tech-glow-cyan: rgba(0, 212, 255, 0.3);
-  --tech-text-main: #e5e7eb;
-  --tech-text-muted: rgba(255, 255, 255, 0.7);
-  --tech-text-dim: rgba(255, 255, 255, 0.5);
+  --tech-text-main: #f0f4f8; /* Lighter for better contrast */
+  --tech-text-muted: rgba(255, 255, 255, 0.85); /* More opaque */
+  --tech-text-dim: rgba(255, 255, 255, 0.65); /* Lighter dim text */
+  --tech-gold: #FFD700;
+  --tech-orange: #FFA500;
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -64,7 +66,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Global Electric Background Effect */
+/* Global Electric Background Effect - Lighter */
 body::before {
   content: '';
   position: fixed;
@@ -73,15 +75,15 @@ body::before {
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(rgba(0, 183, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 183, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.5;
+    linear-gradient(rgba(100, 200, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 200, 255, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.6;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Animated Electric Lines */
+/* Animated Electric Lines - Lighter and More Varied */
 body::after {
   content: '';
   position: fixed;
@@ -90,13 +92,24 @@ body::after {
   right: 0;
   bottom: 0;
   background: 
-    linear-gradient(45deg, transparent 48%, var(--tech-electric-blue) 49%, var(--tech-electric-blue) 51%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, var(--tech-cyan) 49%, var(--tech-cyan) 51%, transparent 52%);
-  background-size: 800px 800px;
-  opacity: 0.03;
-  animation: electricFlow 20s linear infinite;
+    linear-gradient(45deg, transparent 48%, rgba(100, 200, 255, 0.15) 49%, rgba(100, 200, 255, 0.15) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(0, 212, 255, 0.12) 49%, rgba(0, 212, 255, 0.12) 51%, transparent 52%),
+    linear-gradient(30deg, transparent 49%, rgba(150, 220, 255, 0.08) 49.5%, rgba(150, 220, 255, 0.08) 50.5%, transparent 51%),
+    linear-gradient(-60deg, transparent 49%, rgba(80, 180, 255, 0.1) 49.5%, rgba(80, 180, 255, 0.1) 50.5%, transparent 51%);
+  background-size: 600px 600px, 800px 800px, 400px 400px, 700px 700px;
+  opacity: 0.5;
+  animation: electricFlow 25s linear infinite, electricFlow2 20s linear infinite reverse;
   pointer-events: none;
   z-index: 0;
+}
+
+@keyframes electricFlow2 {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 600px 600px, 800px 800px, 400px 400px, 700px 700px;
+  }
 }
 
 @keyframes electricFlow {
@@ -113,34 +126,22 @@ body::after {
    ============================= */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(5, 15, 35, 0.92);
-  backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 183, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 183, 255, 0.1);
-  padding-bottom: 60px; /* Extra space for overlapping logo */
-}
-
-.site-header::before {
-  content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--tech-electric-blue) 50%, 
-    transparent 100%);
-  opacity: 0.7;
+  z-index: 1000;
+  background: transparent; /* No background - let hero show through */
+  backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: none;
+  padding-bottom: 80px; /* Extra space for bigger overlapping logo */
 }
 
 .nav {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.75rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -166,10 +167,10 @@ body::after {
 }
 
 .nav-logo img {
-  height: 140px; /* Large logo */
+  height: 150px; /* Bigger logo */
   width: auto;
   display: block;
-  filter: drop-shadow(0 0 20px rgba(0, 183, 255, 0.7));
+  filter: drop-shadow(0 0 25px rgba(0, 183, 255, 0.8)) drop-shadow(0 0 50px rgba(0, 212, 255, 0.4));
   transition: all 0.3s ease;
   margin-bottom: -15px; /* Slight overlap with text */
 }
@@ -237,19 +238,19 @@ body::after {
   width: 100%;
 }
 
-/* Nav CTA - Right Side */
+/* Nav CTA - Right Side - High Contrast Gold */
 .nav-cta {
-  padding: 0.65rem 1.5rem;
-  background: linear-gradient(135deg, var(--tech-electric-blue), var(--tech-bright-blue));
-  color: white !important;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #0a1628 !important;
   border: none;
   border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-weight: 700;
+  font-size: 0.88rem;
   letter-spacing: 0.3px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 183, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -259,8 +260,8 @@ body::after {
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 183, 255, 0.6);
-  background: linear-gradient(135deg, var(--tech-cyan), var(--tech-electric-blue));
+  box-shadow: 0 6px 30px rgba(255, 215, 0, 0.7);
+  background: linear-gradient(135deg, #FFA500, #FFD700);
 }
 
 .nav-toggle {
@@ -280,15 +281,15 @@ body::after {
   overflow: hidden;
 }
 
-/* Animated Glow Orbs */
+/* Animated Glow Orbs - Lighter */
 .hero::before {
   content: '';
   position: absolute;
   top: -20%;
   left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 183, 255, 0.15) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(100, 200, 255, 0.25) 0%, transparent 70%);
   animation: orbFloat1 20s ease-in-out infinite;
   pointer-events: none;
 }
@@ -298,9 +299,9 @@ body::after {
   position: absolute;
   bottom: -20%;
   right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(150, 220, 255, 0.2) 0%, transparent 70%);
   animation: orbFloat2 18s ease-in-out infinite;
   pointer-events: none;
 }
@@ -335,17 +336,17 @@ body::after {
   z-index: 2;
 }
 
-/* Electric Light Streaks */
+/* Electric Light Streaks - Lighter and More Visible */
 .hero-right::before {
   content: '';
   position: absolute;
   top: 20%;
   right: -10%;
-  width: 700px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--tech-electric-blue), var(--tech-cyan), transparent);
-  box-shadow: 0 0 20px var(--tech-glow-blue);
-  opacity: 0.6;
+  width: 800px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.6), rgba(0, 212, 255, 0.8), transparent);
+  box-shadow: 0 0 25px rgba(100, 200, 255, 0.6), 0 0 50px rgba(0, 212, 255, 0.4);
+  opacity: 0.8;
   animation: electricStreak1 10s ease-in-out infinite;
 }
 
@@ -354,11 +355,11 @@ body::after {
   position: absolute;
   bottom: 30%;
   left: -10%;
-  width: 600px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--tech-cyan), var(--tech-electric-blue), transparent);
-  box-shadow: 0 0 15px var(--tech-glow-cyan);
-  opacity: 0.5;
+  width: 700px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(150, 220, 255, 0.5), rgba(0, 183, 255, 0.7), transparent);
+  box-shadow: 0 0 20px rgba(150, 220, 255, 0.5), 0 0 40px rgba(0, 183, 255, 0.3);
+  opacity: 0.7;
   animation: electricStreak2 12s ease-in-out infinite;
 }
 
@@ -455,7 +456,7 @@ body::after {
   flex-wrap: wrap;
 }
 
-/* Buttons */
+/* Buttons - High Contrast */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -472,29 +473,31 @@ body::after {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--tech-electric-blue), var(--tech-bright-blue));
-  color: white;
-  box-shadow: 0 4px 20px rgba(0, 183, 255, 0.4);
+  background: linear-gradient(135deg, #FFD700, #FFA500); /* Gold/Orange for contrast */
+  color: #0a1628 !important; /* Dark text for contrast */
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(0, 183, 255, 0.6);
-  background: linear-gradient(135deg, var(--tech-cyan), var(--tech-electric-blue));
+  box-shadow: 0 6px 30px rgba(255, 215, 0, 0.7);
+  background: linear-gradient(135deg, #FFA500, #FFD700);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--tech-electric-blue);
+  color: #ffffff;
   border: 2px solid var(--tech-electric-blue);
-  box-shadow: 0 0 15px rgba(0, 183, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 183, 255, 0.3);
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 183, 255, 0.12);
+  background: rgba(0, 183, 255, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 183, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 183, 255, 0.5);
   border-color: var(--tech-cyan);
+  color: var(--tech-cyan);
 }
 
 .hero-trust {
@@ -1637,11 +1640,11 @@ body::after {
 
 @media (max-width: 768px) {
   .site-header {
-    padding-bottom: 80px; /* More space for large logo on mobile */
+    padding-bottom: 100px; /* More space for bigger logo on mobile */
   }
   
   .nav {
-    padding: 0.6rem 1rem;
+    padding: 0.75rem 1rem;
     flex-wrap: wrap;
   }
   
@@ -1650,17 +1653,17 @@ body::after {
   }
   
   .nav-logo img {
-    height: 100px; /* Smaller on mobile but still prominent */
+    height: 120px; /* Bigger on mobile too */
   }
   
   .nav-logo span {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
   
   .nav-cta {
     order: 2;
-    padding: 0.5rem 1.1rem;
-    font-size: 0.78rem;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.8rem;
     margin-left: 0;
   }
   
@@ -1679,12 +1682,12 @@ body::after {
   }
   
   .nav-links a {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     padding: 0.25rem 0;
   }
   
   .hero {
-    padding-top: 5rem;
+    padding-top: 6rem;
     min-height: auto;
   }
   
