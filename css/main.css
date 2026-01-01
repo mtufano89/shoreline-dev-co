@@ -1431,89 +1431,107 @@ body::after {
 }
 
 /* Contact Section */
+/* Contact Section - Hero Style */
 .contact-section {
-  background: linear-gradient(180deg, var(--tech-dark-bg), var(--tech-navy));
-  border-top: 1px solid rgba(0, 183, 255, 0.15);
+  background: linear-gradient(135deg, var(--tech-darker-bg) 0%, var(--tech-navy) 50%, var(--tech-dark-bg) 100%);
+  border-top: none;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  padding: 8rem 2rem 4.5rem;
 }
 
-/* Electric waves in contact section */
-.contact-section::before,
-.contact-section::after {
+/* Circuit nodes for contact page */
+.contact-section::before {
   content: '';
   position: absolute;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle 3px at 15% 25%, rgba(150, 220, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 25% 40%, rgba(100, 200, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(circle 4px at 85% 20%, rgba(120, 210, 255, 1) 50%, transparent 50%),
+    radial-gradient(circle 2px at 75% 35%, rgba(80, 180, 255, 0.85) 50%, transparent 50%),
+    radial-gradient(circle 3px at 20% 70%, rgba(110, 205, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 90% 75%, rgba(130, 215, 255, 0.95) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.9));
+  animation: nodesGlow 3s ease-in-out infinite;
   pointer-events: none;
-}
-
-.contact-section::before {
-  bottom: -30%;
-  left: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(0, 183, 255, 0.15) 0%, transparent 70%);
-  animation: orbFloat1 25s ease-in-out infinite;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 .contact-section::after {
-  top: -30%;
-  right: -20%;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%);
-  animation: orbFloat2 22s ease-in-out infinite;
+  content: none;
 }
 
 .about-inner {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content {
+  width: 100%;
 }
 
 .about-content .eyebrow {
-  font-size: 0.88rem;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-display);
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--tech-cyan);
-  margin-bottom: 1rem;
-  font-family: var(--font-display);
+  color: var(--tech-electric-blue);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 183, 255, 0.12);
+  border: 1px solid rgba(0, 183, 255, 0.35);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 183, 255, 0.2);
 }
 
-.about-content h2 {
-  margin: 0 0 1rem;
-  font-size: 2.4rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
-  color: var(--tech-electric-blue);
-  line-height: 1.2;
+.about-content h2,
+.about-content h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, #ffffff 0%, var(--tech-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
 }
 
 .about-content p {
-  margin: 0 0 1rem;
+  margin: 0 auto 1.5rem;
+  max-width: 700px;
   color: var(--tech-text-muted);
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .about-ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 .reviews-card {
-  background: rgba(13, 24, 41, 0.8);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
-  border: 1px solid rgba(0, 183, 255, 0.3);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 15px 45px rgba(0, 183, 255, 0.2);
-  max-width: 400px;
+  display: none; /* Hide reviews card for cleaner contact page */
 }
 
 .reviews-label {
@@ -1861,37 +1879,91 @@ body::after {
 }
 
 /* Pricing Page Styles */
+/* Pricing Section - Hero Style with Circuit Effects */
 .pricing-section {
-  background: var(--tech-dark-bg);
-  border-top: 1px solid rgba(0, 183, 255, 0.15);
+  background: linear-gradient(135deg, var(--tech-darker-bg) 0%, var(--tech-navy) 50%, var(--tech-dark-bg) 100%);
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 8rem 2rem 4.5rem;
+}
+
+/* Circuit nodes for pricing page */
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle 3px at 15% 25%, rgba(150, 220, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 25% 40%, rgba(100, 200, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(circle 4px at 85% 20%, rgba(120, 210, 255, 1) 50%, transparent 50%),
+    radial-gradient(circle 2px at 75% 35%, rgba(80, 180, 255, 0.85) 50%, transparent 50%),
+    radial-gradient(circle 3px at 20% 70%, rgba(110, 205, 255, 0.9) 50%, transparent 50%),
+    radial-gradient(circle 2px at 90% 75%, rgba(130, 215, 255, 0.95) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.9));
+  animation: nodesGlow 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.pricing-section .section-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .pricing-intro {
-  max-width: 780px;
-  margin: 0 auto 3.5rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
   text-align: center;
 }
 
+.pricing-intro .eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--tech-electric-blue);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(0, 183, 255, 0.12);
+  border: 1px solid rgba(0, 183, 255, 0.35);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 183, 255, 0.2);
+}
+
+.pricing-intro h1,
 .pricing-intro h2 {
-  margin: 0 0 1rem;
-  font-size: 2.5rem;
-  font-weight: 800;
-  font-family: var(--font-heading);
-  background: linear-gradient(135deg, #ffffff, var(--tech-electric-blue));
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, #ffffff 0%, var(--tech-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: -1px;
 }
 
 .pricing-intro p {
-  margin: 0;
-  padding: 1rem 1.5rem;
-  background: rgba(0, 183, 255, 0.1);
-  border: 1px solid rgba(0, 183, 255, 0.3);
-  border-radius: var(--radius-md);
+  margin: 0 auto 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  max-width: 700px;
   color: var(--tech-text-muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .pricing-grid {
@@ -2027,41 +2099,91 @@ body::after {
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.5rem;
+  display: block;
+  max-width: 700px;
+  margin: 3rem auto 0;
 }
 
 .contact-card {
-  background: rgba(13, 24, 41, 0.7);
+  background: rgba(13, 24, 41, 0.8);
   border-radius: var(--radius-xl);
-  padding: 2rem;
-  border: 1px solid rgba(0, 183, 255, 0.25);
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 183, 255, 0.3);
   backdrop-filter: blur(10px);
+  text-align: left;
 }
 
 .contact-card h3 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
   font-family: var(--font-heading);
   color: var(--tech-electric-blue);
   font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.contact-card p {
+  margin: 0 0 0.75rem;
+  color: var(--tech-text-main);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-card strong {
+  color: var(--tech-text-main);
+  font-weight: 600;
 }
 
 .contact-card a {
   color: var(--tech-cyan);
   text-decoration: none;
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .contact-card a:hover {
+  color: var(--tech-electric-blue);
   text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-.contact-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* Social Media Icons */
+.social-links {
+  display: flex;
+  gap: 1rem;
   margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 183, 255, 0.2);
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 183, 255, 0.1);
+  border: 1px solid rgba(0, 183, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tech-electric-blue);
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(0, 183, 255, 0.2);
+  border-color: var(--tech-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 183, 255, 0.4);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.contact-steps {
+  display: none; /* Hide steps for cleaner layout */
 }
 
 .contact-step {
