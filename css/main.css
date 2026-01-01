@@ -2218,3 +2218,206 @@ body::after {
   font-size: 0.92rem;
   color: var(--tech-text-muted);
 }
+
+/* =============================
+   FIXES FOR PRICING + CONTACT
+   ============================= */
+
+/* Pricing hero styles (HTML uses pricing-hero) */
+.pricing-hero {
+  padding: 10rem 2rem 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.pricing-hero-subtitle {
+  color: var(--tech-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.pricing-highlight-card {
+  background: rgba(13, 24, 41, 0.75);
+  border: 1px solid rgba(0, 183, 255, 0.25);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-highlight-label {
+  color: var(--tech-cyan);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.8rem;
+}
+
+.pricing-highlight-main {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--tech-text-main);
+}
+
+.pricing-highlight-note {
+  color: var(--tech-text-muted);
+  line-height: 1.7;
+}
+
+/* Pricing grid should handle 4 cards cleanly */
+.pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: stretch;
+}
+
+/* Make pricing cards consistent and not cramped */
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-card .btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Feature subtitle in Business card */
+.feature-subtitle {
+  margin-top: 0.25rem;
+  color: var(--tech-text-dim);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* Contact CTAs layout */
+.contact-page-hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+/* Outline button used on contact page */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+  border: 2px solid rgba(0, 183, 255, 0.6);
+  color: #ffffff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 183, 255, 0.12);
+  border-color: var(--tech-cyan);
+  color: var(--tech-cyan);
+}
+
+/* Make btn-secondary work even without .btn */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+/* Contact grid: card + map */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  align-items: start;
+}
+
+.map-embed iframe {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 183, 255, 0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Contact meta and social */
+.contact-meta {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 183, 255, 0.2);
+}
+
+.social-icons-label {
+  margin-top: 1.25rem;
+  color: var(--tech-text-dim);
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 183, 255, 0.1);
+  border: 1px solid rgba(0, 183, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(0, 183, 255, 0.18);
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 183, 255, 0.35);
+}
+
+.social-icon img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pricing-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
