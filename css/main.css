@@ -1919,18 +1919,22 @@ body::after {
     font-size: 2.5rem;
   }
   
-  .hero-showcase {
-    position: static;
-    transform: none;
-    margin: 2rem auto 0;
-    max-width: 420px;
-    width: 90%;
+  /* Hide trust pills on mobile */
+  .hero-trust {
+    display: none;
   }
   
+  /* Hide featured projects showcase on mobile */
+  .hero-showcase {
+    display: none;
+  }
+  
+  /* Make lighthouse visible on mobile */
   .hero-lighthouse {
-    width: 180px;
-    height: 400px;
-    opacity: 0.25;
+    width: 200px;
+    height: 450px;
+    opacity: 0.4;
+    left: 50%;
   }
   
   .section-header h2 {
@@ -1956,8 +1960,88 @@ body::after {
     text-align: center;
   }
   
+  /* Mobile pricing adjustments */
+  .pricing-section {
+    padding: 6rem 0 3rem;
+  }
+  
+  .pricing-intro h1,
+  .pricing-tiers-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .pricing-intro p,
+  .pricing-tiers-header p {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+  
+  .pricing-intro,
+  .pricing-tiers-header {
+    padding: 0 1rem;
+  }
+  
+  .pricing-highlight-wrapper {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .pricing-highlight-card {
+    padding: 1.5rem;
+  }
+  
+  .pricing-highlight-main {
+    font-size: 2rem;
+  }
+  
+  /* Horizontal scroller for pricing cards */
   .pricing-grid {
+    grid-template-columns: none;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    margin: 0 -1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .pricing-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .pricing-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    padding: 1.5rem;
+    max-width: 320px;
+  }
+  
+  .tier-business {
+    transform: scale(1);
+  }
+  
+  .pricing-title {
+    font-size: 1.1rem;
+  }
+  
+  .pricing-amount {
+    font-size: 1.8rem;
+  }
+  
+  .pricing-features li {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  
+  .contact-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contact-map {
+    min-height: 300px;
   }
 }
 

@@ -23,6 +23,14 @@
         <li><a href="contact.html" class="active">Contact Us</a></li>
       </ul>
 
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <div class="nav-toggle-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
       <a href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ" class="nav-cta">Build Your Site Today</a>
     </nav>
   </header>
@@ -102,6 +110,27 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FMD6J48ZX7');
+  </script>
+
+  <!-- HAMBURGER MENU SCRIPT -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('mobile-open');
+        toggle.classList.toggle('active');
+      });
+
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          links.classList.remove('mobile-open');
+          toggle.classList.remove('active');
+        });
+      });
+    }
   </script>
 </body>
 </html>
