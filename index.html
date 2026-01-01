@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,310 +8,350 @@
     name="description"
     content="Shoreline Dev Co. builds modern, conversion-focused, mobile-first websites for local brands. Simple pricing, fast hosting, and friendly support."
   />
-<link rel="stylesheet" href="css/main.css?v=2"></head>
+  <link rel="stylesheet" href="css/main.css?v=3">
+</head>
 <body>
-  <!-- ==========================
-       HEADER / NAVBAR
-       ========================== -->
+  <!-- HEADER / NAVBAR -->
   <header class="site-header">
-    <div class="nav">
+    <nav class="nav">
       <a href="index.html" class="nav-logo">
-        <!-- use whichever logo file you prefer -->
-        <img src="images/primary-logo.PNG" alt="Shorelilne Dev Co. logo" />
-        
+        <img src="images/primary-logo.PNG" alt="Shoreline Dev Co. logo" />
+        <span>SHORELINE DEV CO.</span>
       </a>
 
-    <ul class="nav-links">
-  <li><a href="index.html" class="active">Home</a></li>
-  <li><a href="index.html#projects">Projects</a></li>
-  <li><a href="pricing.html">Pricing</a></li>
-  <li><a href="contact.html">Contact Us</a></li>
-</ul>
-
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
 
       <button class="nav-toggle" aria-label="Toggle navigation">
-  <div class="nav-toggle-bars">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</button>
+        <div class="nav-toggle-bars">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
 
-
-      <a
-  href="discovery_form.html"
-  class="nav-cta"
->
-  Build Your Site Today
-</a>
-    
+      <a href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ" class="nav-cta">
+        Build Your Site Today
+      </a>
+    </nav>
   </header>
 
   <main>
-    <!-- ==========================
-         HERO
-         ========================== -->
-   <section id="hero" class="hero">
-  <!-- RIGHT: main hero content -->
-  <div class="hero-right">
-    <div class="hero-inner">
-      <p class="hero-tag">Web Design &amp; Development</p>
-
-      <h1 class="hero-title">
-        Shoreline<br />
-        Dev Co.
-      </h1>
-
-      <div class="hero-rotator">
-        <span
-          id="hero-rotator-text"
-          class="hero-rotator-text hero-rotator-text-visible"
-        >
-          Modern web design for local brands.
-        </span>
+    <!-- HERO -->
+    <section class="hero">
+      <!-- Lighthouse with realistic rotating beam -->
+      <div class="hero-lighthouse">
+        <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Light beam gradient -->
+          <defs>
+            <linearGradient id="beamGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+              <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0" />
+              <stop offset="40%" style="stop-color:#FFA500;stop-opacity:0.3" />
+              <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.7" />
+              <stop offset="60%" style="stop-color:#FFA500;stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Rotating beam - spins 360° continuously -->
+          <g>
+            <rect x="100" y="45" width="400" height="30" fill="url(#beamGradient)">
+              <!-- Continuous 360° rotation -->
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 100 60"
+                to="360 100 60"
+                dur="8s"
+                repeatCount="indefinite"/>
+              <!-- Only visible when facing forward (front 180°) -->
+              <animate
+                attributeName="opacity"
+                values="0;1;1;1;1;0;0;0;0;0"
+                keyTimes="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;1"
+                dur="8s"
+                repeatCount="indefinite"/>
+            </rect>
+          </g>
+          
+          <!-- Lighthouse structure -->
+          <!-- Base -->
+          <polygon points="60,400 140,400 130,360 70,360" fill="rgba(0, 183, 255, 0.2)" stroke="rgba(0, 183, 255, 0.4)" stroke-width="2"/>
+          
+          <!-- Lower tower -->
+          <polygon points="70,360 130,360 120,200 80,200" fill="rgba(0, 183, 255, 0.25)" stroke="rgba(0, 183, 255, 0.5)" stroke-width="2"/>
+          
+          <!-- Middle band -->
+          <rect x="75" y="190" width="50" height="15" fill="rgba(0, 212, 255, 0.3)" stroke="rgba(0, 212, 255, 0.6)" stroke-width="2"/>
+          
+          <!-- Upper tower -->
+          <polygon points="80,190 120,190 115,100 85,100" fill="rgba(0, 183, 255, 0.25)" stroke="rgba(0, 183, 255, 0.5)" stroke-width="2"/>
+          
+          <!-- Gallery deck -->
+          <rect x="75" y="90" width="50" height="12" fill="rgba(0, 212, 255, 0.35)" stroke="rgba(0, 212, 255, 0.7)" stroke-width="2"/>
+          
+          <!-- Lantern room -->
+          <rect x="82" y="50" width="36" height="42" fill="rgba(255, 215, 0, 0.2)" stroke="rgba(255, 215, 0, 0.6)" stroke-width="2"/>
+          
+          <!-- Windows in lantern (glowing) -->
+          <rect x="88" y="58" width="8" height="12" fill="rgba(255, 215, 0, 0.6)">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="104" y="58" width="8" height="12" fill="rgba(255, 215, 0, 0.6)">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="88" y="74" width="8" height="12" fill="rgba(255, 215, 0, 0.6)">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="104" y="74" width="8" height="12" fill="rgba(255, 215, 0, 0.6)">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          
+          <!-- Dome roof -->
+          <path d="M 75,50 Q 100,30 125,50" fill="rgba(0, 183, 255, 0.3)" stroke="rgba(0, 183, 255, 0.6)" stroke-width="2"/>
+          
+          <!-- Top finial -->
+          <circle cx="100" cy="30" r="4" fill="rgba(255, 215, 0, 0.8)"/>
+          <line x1="100" y1="30" x2="100" y2="22" stroke="rgba(255, 215, 0, 0.8)" stroke-width="2"/>
+        </svg>
       </div>
 
-      <p class="hero-subtitle">
-        Get a professional website in 2-3 weeks, not months. Modern design that converts visitors into customers — starting at $399.
-      </p>
+      <!-- Hero Content -->
+      <div class="hero-right">
+        <div class="hero-inner">
+          <p class="hero-tag">Web Design &amp; Development</p>
 
-      <div class="hero-ctas">
-        <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
-        <a
-          href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          Get Started
-        </a>
-      </div>
+          <h1 class="hero-title">
+            Shoreline<br />
+            Dev Co.
+          </h1>
 
-      <div class="hero-trust">
-        <span class="trust-chip">✅ 50+ sites delivered</span>
-        <span class="trust-chip">⚡ 2-3 week turnaround</span>
-        <span class="trust-chip">⭐ 5.0 rating</span>
-        <span class="trust-chip">💰 Starting at $399</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT: featured projects showcase -->
-  <aside class="hero-showcase">
-    <h2 class="hero-showcase-heading">Featured Projects</h2>
-
-    <!-- NEW: animated water swirls -->
-
-  <div class="hero-water hero-water-1"></div>
-  <div class="hero-water hero-water-2"></div>
-
-    <div class="hero-showcase-glow hero-showcase-glow-1"></div>
-    <div class="hero-showcase-glow hero-showcase-glow-2"></div>
-
-    <div class="hero-showcase-card hero-showcase-card-active" data-index="0">
-      <img src="images/Hard_Knox_Fitness.png" alt="Hard Knox Fitness website preview" />
-      <div class="hero-showcase-body">
-        <p class="showcase-label">Recent Work</p>
-        <h3>Hard Knox Fitness</h3>
-        <p>High-energy layout for a local gym, built to drive memberships.</p>
-      </div>
-    </div>
-
-    <div class="hero-showcase-card" data-index="1">
-      <img src="images/Fired_Up_Slice_Co.png" alt="FUSC Soccer Club website preview" />
-      <div class="hero-showcase-body">
-        <p class="showcase-label">Recent Work</p>
-        <h3>Fired Up Slice Co.</h3>
-        <p>Family-friendly pizza resturant with clear menus and specials.</p>
-      </div>
-    </div>
-
-    <div class="hero-showcase-card" data-index="2">
-      <img src="images/joes_break_room.png" alt="Shoreline Mobile Shop preview" />
-      <div class="hero-showcase-body">
-        <p class="showcase-label">Recent Work</p>
-        <h3>Joe's Break Room</h3>
-        <p>Product-focused layout designed to convert browsers into buyers.</p>
-      </div>
-    </div>
-
-    <div class="hero-showcase-card" data-index="1">
-      <img src="images/GreenWave_Landscaping.png" alt="GreenWave Landscaping" />
-      <div class="hero-showcase-body">
-        <p class="showcase-label">Recent Work</p>
-        <h3>GreenWave Landscaping</h3>
-        <p>A clean, modern landscaping website designed to showcase services, build trust with local homeowners</p>
-      </div>
-    </div>
-
-    <div class="hero-showcase-card" data-index="1">
-      <img src="images/Fade_Dept_Co.png" alt="Distrcit Fade Co." />
-      <div class="hero-showcase-body">
-        <p class="showcase-label">Recent Work</p>
-        <h3>District Fade Co.</h3>
-        <p>A bold, cinematic barber shop website with a dark, high-contrast aesthetic that emphasizes precision, confidence, and mobile-first booking</p>
-      </div>
-    </div>
-
-    <div class="hero-showcase-dots">
-      <button class="hero-showcase-dot active" data-index="0"></button>
-      <button class="hero-showcase-dot" data-index="1"></button>
-      <button class="hero-showcase-dot" data-index="2"></button>
-  </aside>
-</section>
-
-<!-- Wave Divider -->
-<div class="wave-divider">
-  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-    <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#f9fafb"></path>
-  </svg>
-</div>
-
-   <!-- =============================
-     RECENT PROJECTS SECTION
-     ============================= -->
-<section id="projects" class="section projects-section">
-  <div class="section-inner">
-    <div class="section-header">
-      <h2>Recent Projects</h2>
-      <p>
-        A few examples of small business websites built with performance,
-        clarity, and modern design in mind.
-      </p>
-    </div>
-
-    <!-- Carousel container -->
-    <div class="projects-carousel-wrapper">
-      <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">‹</button>
-      <button class="carousel-btn carousel-btn-next" aria-label="Next project">›</button>
-      
-      <div class="projects-carousel">
-      <!-- Project 1 -->
-      <article class="project-card">
-        <div class="project-frame project-frame-blue">
-          <div class="project-image-wrapper">
-            <img src="images/Hard_Knox_Fitness.png" alt="Hard Knox Fitness website mockup" />
+          <div class="hero-rotator">
+            <span id="hero-rotator-text" class="hero-rotator-text hero-rotator-text-visible">
+              Modern web design for local brands.
+            </span>
           </div>
-        </div>
-        <div class="project-meta">
-          <h3><a href="https://mtufano89.github.io/Hard-Knox-Fitness/">Hard Knox Fitness</a></h3>
-          <p>
-            High-energy layout for a local gym, focused on driving memberships.
+
+          <p class="hero-subtitle">
+            Get a professional website in 2-3 weeks, not months. Modern design that converts visitors into customers — starting at $399.
           </p>
-          <div class="project-tags">
-            <span>Fitness</span>
-            <span>Landing page</span>
-            <span>Conversion-focused</span>
-          </div>
-        </div>
-      </article>
 
-      <!-- Project 2 -->
-      <article class="project-card">
-        <div class="project-frame project-frame-teal">
-          <div class="project-image-wrapper">
-            <img src="images/joes_break_room.png" alt="FUSC Soccer Club website mockup" />
+          <div class="hero-ctas">
+            <a href="pricing.html" class="btn btn-secondary">View Pricing</a>
+            <a href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ" target="_blank" rel="noopener" class="btn btn-primary">
+              Get Started
+            </a>
           </div>
-        </div>
-        <div class="project-meta">
-          <h3><a href="https://mtufano89.github.io/Joes_Break_Room/">Joe's Break Room</a></h3>
-          <p>
-                        Product-focused layout designed to convert browsers into buyers.
-          </p>
-          <div class="project-tags">
-            <span>E-commerce</span>
-            <span>Sales-Focused</span>
-            <span>Product-Grid</span>
-          </div>
-        </div>
-      </article>
 
-      <!-- Project 3 -->
-      <article class="project-card">
-        <div class="project-frame project-frame-sand">
-          <div class="project-image-wrapper">
-            <img src="images/Fired_Up_Slice_Co.png" alt="Shoreline Mobile Shop mockup" />
+          <div class="hero-trust">
+            <span class="trust-chip">✅ 50+ sites delivered</span>
+            <span class="trust-chip">⚡ 2-3 week turnaround</span>
+            <span class="trust-chip">⭐ 5.0 rating</span>
+            <span class="trust-chip">💰 Starting at $399</span>
           </div>
         </div>
-        <div class="project-meta">
-          <h3><a href="https://mtufano89.github.io/Fired-Up-Slice-Co/">Fired Up Slice Co.</a></h3>
-          <p>
-            Family-friendly club resturant with menu and clear navigation.
-          </p>
-          <div class="project-tags">
-            <span>SEO Optimized</span>
-            <span>Menu</span>
-            <span>Smooth Layout</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="project-card">
-        <div class="project-frame project-frame-sand">
-          <div class="project-image-wrapper">
-            <img src="images/GreenWave_Landscaping.png" alt="GreenWave Landscaping" />
-          </div>
-        </div>
-        <div class="project-meta">
-          <h3><a href="https://mtufano89.github.io/GreenWave_Landscaping/">GreenWave Landscaping</a></h3>
-          <p>
-            A clean, modern landscaping website designed to showcase services, build trust with local homeowners
-          </p>
-          <div class="project-tags">
-            <span>Small Business</span>
-            <span>Gallery</span>
-            <span>Service</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 5 -->
-      <article class="project-card">
-        <div class="project-frame project-frame-sand">
-          <div class="project-image-wrapper">
-            <img src="images/Fade_Dept_Co.png" alt="District Fade Co." />
-          </div>
-        </div>
-        <div class="project-meta">
-          <h3><a href="https://mtufano89.github.io/District_Fade_Co/index.html">District Fade Co.</a></h3>
-          <p>
-            A bold, cinematic barber shop website with a dark, high-contrast 
-            aesthetic that emphasizes precision, confidence, and mobile-first booking
-          </p>
-          <div class="project-tags">
-            <span>Booking</span>
-            <span>Gallery</span>
-            <span>Service</span>
-          </div>
-        </div>
-      </article>
-
       </div>
+
+      <!-- Featured Projects Showcase -->
+      <aside class="hero-showcase">
+        <h2 class="hero-showcase-heading">Featured Projects</h2>
+
+        <div class="hero-water hero-water-1"></div>
+        <div class="hero-water hero-water-2"></div>
+
+        <div class="hero-showcase-glow hero-showcase-glow-1"></div>
+        <div class="hero-showcase-glow hero-showcase-glow-2"></div>
+
+        <div class="hero-showcase-card hero-showcase-card-active" data-index="0">
+          <img src="images/Hard_Knox_Fitness.png" alt="Hard Knox Fitness website preview" />
+          <div class="hero-showcase-body">
+            <p class="showcase-label">Recent Work</p>
+            <h3>Hard Knox Fitness</h3>
+            <p>High-energy layout for a local gym, built to drive memberships.</p>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card" data-index="1">
+          <img src="images/Fired_Up_Slice_Co.png" alt="Fired Up Slice Co website preview" />
+          <div class="hero-showcase-body">
+            <p class="showcase-label">Recent Work</p>
+            <h3>Fired Up Slice Co.</h3>
+            <p>Family-friendly pizza restaurant with clear menus and specials.</p>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card" data-index="2">
+          <img src="images/joes_break_room.png" alt="Joe's Break Room preview" />
+          <div class="hero-showcase-body">
+            <p class="showcase-label">Recent Work</p>
+            <h3>Joe's Break Room</h3>
+            <p>Product-focused layout designed to convert browsers into buyers.</p>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card" data-index="3">
+          <img src="images/GreenWave_Landscaping.png" alt="GreenWave Landscaping" />
+          <div class="hero-showcase-body">
+            <p class="showcase-label">Recent Work</p>
+            <h3>GreenWave Landscaping</h3>
+            <p>A clean, modern landscaping website designed to showcase services and build trust with local homeowners.</p>
+          </div>
+        </div>
+
+        <div class="hero-showcase-card" data-index="4">
+          <img src="images/Fade_Dept_Co.png" alt="District Fade Co." />
+          <div class="hero-showcase-body">
+            <p class="showcase-label">Recent Work</p>
+            <h3>District Fade Co.</h3>
+            <p>A bold, cinematic barber shop website with a dark aesthetic that emphasizes precision and mobile-first booking.</p>
+          </div>
+        </div>
+
+        <div class="hero-showcase-dots">
+          <button class="hero-showcase-dot active" data-index="0"></button>
+          <button class="hero-showcase-dot" data-index="1"></button>
+          <button class="hero-showcase-dot" data-index="2"></button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,120 L0,120 Z" fill="#f9fafb"></path>
+      </svg>
     </div>
 
-    <!-- Scroll indicators -->
-    <div class="carousel-dots">
-      <span class="carousel-dot active" data-index="0"></span>
-      <span class="carousel-dot" data-index="1"></span>
-      <span class="carousel-dot" data-index="2"></span>
-      <span class="carousel-dot" data-index="3"></span>
-      <span class="carousel-dot" data-index="4"></span>
-    </div>
-  </div>
-    
-</section>
+    <!-- RECENT PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Recent Projects</h2>
+          <p>
+            A few examples of small business websites built with performance,
+            clarity, and modern design in mind.
+          </p>
+        </div>
 
-    <!-- ==========================
-         HOW IT WORKS
-         ========================== -->
+        <!-- Carousel container -->
+        <div class="projects-carousel-wrapper">
+          <button class="carousel-btn carousel-btn-prev" aria-label="Previous project">‹</button>
+          <button class="carousel-btn carousel-btn-next" aria-label="Next project">›</button>
+          
+          <div class="projects-carousel">
+            <!-- Project 1 -->
+            <article class="project-card">
+              <div class="project-frame project-frame-blue">
+                <div class="project-image-wrapper">
+                  <img src="images/Hard_Knox_Fitness.png" alt="Hard Knox Fitness website mockup" />
+                </div>
+              </div>
+              <div class="project-meta">
+                <h3><a href="https://mtufano89.github.io/Hard-Knox-Fitness/">Hard Knox Fitness</a></h3>
+                <p>High-energy layout for a local gym, focused on driving memberships.</p>
+                <div class="project-tags">
+                  <span>Fitness</span>
+                  <span>Landing page</span>
+                  <span>Conversion-focused</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+              <div class="project-frame project-frame-teal">
+                <div class="project-image-wrapper">
+                  <img src="images/joes_break_room.png" alt="Joe's Break Room website mockup" />
+                </div>
+              </div>
+              <div class="project-meta">
+                <h3><a href="https://mtufano89.github.io/Joes_Break_Room/">Joe's Break Room</a></h3>
+                <p>Product-focused layout designed to convert browsers into buyers.</p>
+                <div class="project-tags">
+                  <span>E-commerce</span>
+                  <span>Sales-Focused</span>
+                  <span>Product-Grid</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+              <div class="project-frame project-frame-sand">
+                <div class="project-image-wrapper">
+                  <img src="images/Fired_Up_Slice_Co.png" alt="Fired Up Slice Co mockup" />
+                </div>
+              </div>
+              <div class="project-meta">
+                <h3><a href="https://mtufano89.github.io/Fired-Up-Slice-Co/">Fired Up Slice Co.</a></h3>
+                <p>Family-friendly restaurant with menu and clear navigation.</p>
+                <div class="project-tags">
+                  <span>SEO Optimized</span>
+                  <span>Menu</span>
+                  <span>Smooth Layout</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+              <div class="project-frame project-frame-sand">
+                <div class="project-image-wrapper">
+                  <img src="images/GreenWave_Landscaping.png" alt="GreenWave Landscaping" />
+                </div>
+              </div>
+              <div class="project-meta">
+                <h3><a href="https://mtufano89.github.io/GreenWave_Landscaping/">GreenWave Landscaping</a></h3>
+                <p>A clean, modern landscaping website designed to showcase services and build trust with local homeowners.</p>
+                <div class="project-tags">
+                  <span>Small Business</span>
+                  <span>Gallery</span>
+                  <span>Service</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project-card">
+              <div class="project-frame project-frame-sand">
+                <div class="project-image-wrapper">
+                  <img src="images/Fade_Dept_Co.png" alt="District Fade Co." />
+                </div>
+              </div>
+              <div class="project-meta">
+                <h3><a href="https://mtufano89.github.io/District_Fade_Co/index.html">District Fade Co.</a></h3>
+                <p>A bold, cinematic barber shop website with a dark, high-contrast aesthetic that emphasizes precision and mobile-first booking.</p>
+                <div class="project-tags">
+                  <span>Booking</span>
+                  <span>Gallery</span>
+                  <span>Service</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scroll indicators -->
+        <div class="carousel-dots">
+          <span class="carousel-dot active" data-index="0"></span>
+          <span class="carousel-dot" data-index="1"></span>
+          <span class="carousel-dot" data-index="2"></span>
+          <span class="carousel-dot" data-index="3"></span>
+          <span class="carousel-dot" data-index="4"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
     <section id="how-it-works" class="section how-it-works-section">
       <div class="section-inner">
         <div class="section-header">
           <h2>How It Works</h2>
-          <p>
-            From first call to launch, we keep it simple and transparent.
-          </p>
+          <p>From first call to launch, we keep it simple and transparent.</p>
         </div>
 
         <div class="process-steps">
@@ -373,9 +412,7 @@
       </div>
     </section>
 
-    <!-- ==========================
-         WHY SHORELINE
-         ========================== -->
+    <!-- WHY SHORELINE -->
     <section id="why" class="section why-section">
       <div class="section-inner">
         <div class="section-header">
@@ -401,10 +438,7 @@
             </div>
 
             <div class="metrics-panels">
-              <div
-                class="metrics-panel active"
-                id="metric-conversion"
-              >
+              <div class="metrics-panel active" id="metric-conversion">
                 <h3>Turn visitors into leads.</h3>
                 <p>
                   Every layout is designed with clear calls-to-action, easy
@@ -436,43 +470,39 @@
       </div>
     </section>
 
-    <!-- =============================
-     MOBILE-FIRST SECTION
-     ============================= -->
-<section id="mobile-first" class="section mobile-section">
-  <div class="section-inner">
-    <div class="mobile-inner">
-      <div class="mobile-content">
-        <p class="eyebrow">Mobile-first by default</p>
-        <h2>Built to look great on every screen.</h2>
-        <p>
-          Most of your visitors are on their phones. Every Shoreline site is
-          designed for mobile first, then scaled up for tablets and desktops.
-          No pinching, zooming, or tiny buttons.
-        </p>
-        <p>
-          Responsive layouts, readable typography, and fast loading times mean
-          your site feels as good as it looks—no matter where it's viewed.
-        </p>
-      </div>
-
-      <div class="mobile-media">
-        <div class="mobile-phone-stack">
-          <div class="phone phone-back">
-            <img src="images/mobile-hair.png"Mobile homepage mockup" />
+    <!-- MOBILE-FIRST SECTION -->
+    <section id="mobile-first" class="section mobile-section">
+      <div class="section-inner">
+        <div class="mobile-inner">
+          <div class="mobile-content">
+            <p class="eyebrow">Mobile-first by default</p>
+            <h2>Built to look great on every screen.</h2>
+            <p>
+              Most of your visitors are on their phones. Every Shoreline site is
+              designed for mobile first, then scaled up for tablets and desktops.
+              No pinching, zooming, or tiny buttons.
+            </p>
+            <p>
+              Responsive layouts, readable typography, and fast loading times mean
+              your site feels as good as it looks—no matter where it's viewed.
+            </p>
           </div>
-          <div class="phone phone-front">
-            <img src="images/mobile-shop.png" alt="Mobile shop page mockup" />
+
+          <div class="mobile-media">
+            <div class="mobile-phone-stack">
+              <div class="phone phone-back">
+                <img src="images/mobile-hair.png" alt="Mobile homepage mockup" />
+              </div>
+              <div class="phone phone-front">
+                <img src="images/mobile-shop.png" alt="Mobile shop page mockup" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-    <!-- ==========================
-         FAQ SECTION
-         ========================== -->
+    <!-- FAQ SECTION -->
     <section id="faq" class="section faq-section">
       <div class="section-inner">
         <div class="section-header">
@@ -554,9 +584,7 @@
       </div>
     </section>
 
-    <!-- ==========================
-         ABOUT / CONTACT
-         ========================== -->
+    <!-- ABOUT / CONTACT -->
     <section id="contact" class="section contact-section">
       <div class="section-inner about-inner">
         <div class="about-content">
@@ -574,12 +602,7 @@
           </p>
 
           <div class="about-ctas">
-            <a
-              href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary"
-            >
+            <a href="https://41ldgg.share-na2.hsforms.com/2zGJUv_ZJTlOxU-nuG8SywQ" target="_blank" rel="noopener" class="btn btn-primary">
               Fill Out the Project Form
             </a>
             <a href="pricing.html" class="btn btn-secondary">
@@ -608,9 +631,7 @@
     </section>
   </main>
 
-  <!-- ==========================
-       FOOTER
-       ========================== -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -671,207 +692,176 @@
     </script>
   </footer>
 
-  <!-- ==========================
-       SCRIPTS – rotator, metrics tabs, scroll reveal
-       ========================== -->
+  <!-- SCRIPTS -->
   <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // HERO TEXT ROTATOR
-  // =========================
-  const phrases = [
-    "Modern web design for local brands.",
-    "Conversion-focused layouts that actually work.",
-    "Mobile-first, SEO-friendly websites."
-  ];
-  const rotatorEl = document.getElementById("hero-rotator-text");
-  let phraseIndex = 0;
+    document.addEventListener("DOMContentLoaded", function () {
+      // HERO TEXT ROTATOR
+      const phrases = [
+        "Modern web design for local brands.",
+        "Conversion-focused layouts that actually work.",
+        "Mobile-first, SEO-friendly websites."
+      ];
+      const rotatorEl = document.getElementById("hero-rotator-text");
+      let phraseIndex = 0;
 
-  if (rotatorEl) {
-    // make sure the initial phrase is visible
-    rotatorEl.classList.add("hero-rotator-text-visible");
-    setInterval(() => {
-      rotatorEl.classList.remove("hero-rotator-text-visible");
-      setTimeout(() => {
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        rotatorEl.textContent = phrases[phraseIndex];
+      if (rotatorEl) {
         rotatorEl.classList.add("hero-rotator-text-visible");
-      }, 220);
-    }, 3200);
-  }
-
-  // =========================
-  // HERO PROJECT SHOWCASE
-  // =========================
-  const cards = Array.from(document.querySelectorAll(".hero-showcase-card"));
-  const dots  = Array.from(document.querySelectorAll(".hero-showcase-dot"));
-
-  if (cards.length && dots.length) {
-    let current = 0;
-
-    function showCard(index) {
-      cards.forEach((card, i) => {
-        card.classList.toggle("hero-showcase-card-active", i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === index);
-      });
-      current = index;
-    }
-
-    // dot click handlers
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const index = Number(dot.dataset.index);
-        showCard(index);
-      });
-    });
-  
-
-
-    // auto-rotate every 6 seconds
-    setInterval(() => {
-      const next = (current + 1) % cards.length;
-      showCard(next);
-    }, 6000);
-  }
-});
-const toggle = document.querySelector('.nav-toggle');
-const links  = document.querySelector('.nav-links');
-
-toggle.addEventListener('click', () => {
-  links.classList.toggle('mobile-open');
-});
-// =======================================
-// WHY-SHORELINE METRICS TABS
-// =======================================
-
-const metricsTabs = document.querySelectorAll('.metrics-tab');
-const metricsPanels = document.querySelectorAll('.metrics-panel');
-
-metricsTabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    // remove active from all tabs
-    metricsTabs.forEach(t => t.classList.remove('active'));
-    // remove active from all panels
-    metricsPanels.forEach(p => p.classList.remove('active'));
-
-    // activate the clicked tab
-    tab.classList.add('active');
-    // activate the panel with the same index
-    if (metricsPanels[index]) {
-      metricsPanels[index].classList.add('active');
-    }
-  });
-});
-
-  // =========================
-  // FAQ ACCORDION
-  // =========================
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      
-      // Close all other items
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
-      });
-      
-      // Toggle current item
-      if (!isActive) {
-        item.classList.add('active');
+        setInterval(() => {
+          rotatorEl.classList.remove("hero-rotator-text-visible");
+          setTimeout(() => {
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            rotatorEl.textContent = phrases[phraseIndex];
+            rotatorEl.classList.add("hero-rotator-text-visible");
+          }, 220);
+        }, 3200);
       }
-    });
-  });
 
-  // =========================
-  // PROJECTS CAROUSEL
-  // =========================
-  const carousel = document.querySelector('.projects-carousel');
-  const prevBtn = document.querySelector('.carousel-btn-prev');
-  const nextBtn = document.querySelector('.carousel-btn-next');
-  const dots = document.querySelectorAll('.carousel-dot');
-  const cards = document.querySelectorAll('.projects-carousel .project-card');
-  
-  if (carousel && prevBtn && nextBtn && dots.length && cards.length) {
-    let currentIndex = 0;
-    
-    function updateCarousel() {
-      const cardWidth = cards[0].offsetWidth;
-      const gap = 32; // 2rem gap
-      const scrollPosition = currentIndex * (cardWidth + gap);
-      
-      carousel.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      });
-      
-      // Update dots
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-    
-    // Next button
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < cards.length - 1) {
-        currentIndex++;
-        updateCarousel();
+      // HERO PROJECT SHOWCASE
+      const cards = Array.from(document.querySelectorAll(".hero-showcase-card"));
+      const dots  = Array.from(document.querySelectorAll(".hero-showcase-dot"));
+
+      if (cards.length && dots.length) {
+        let current = 0;
+
+        function showCard(index) {
+          cards.forEach((card, i) => {
+            card.classList.toggle("hero-showcase-card-active", i === index);
+          });
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+          });
+          current = index;
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const index = Number(dot.dataset.index);
+            showCard(index);
+          });
+        });
+
+        setInterval(() => {
+          const next = (current + 1) % cards.length;
+          showCard(next);
+        }, 6000);
       }
-    });
-    
-    // Previous button
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
+
+      // NAV TOGGLE
+      const toggle = document.querySelector('.nav-toggle');
+      const links  = document.querySelector('.nav-links');
+
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          links.classList.toggle('mobile-open');
+        });
       }
-    });
-    
-    // Dot navigation
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
+
+      // METRICS TABS
+      const metricsTabs = document.querySelectorAll('.metrics-tab');
+      const metricsPanels = document.querySelectorAll('.metrics-panel');
+
+      metricsTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+          metricsTabs.forEach(t => t.classList.remove('active'));
+          metricsPanels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          if (metricsPanels[index]) {
+            metricsPanels[index].classList.add('active');
+          }
+        });
       });
-    });
-    
-    // Track scroll position to update dots
-    let scrollTimeout;
-    carousel.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 32;
-        const scrollLeft = carousel.scrollLeft;
-        const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+      // FAQ ACCORDION
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
         
-        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
-          currentIndex = newIndex;
-          dots.forEach((dot, index) => {
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+
+      // PROJECTS CAROUSEL
+      const carousel = document.querySelector('.projects-carousel');
+      const prevBtn = document.querySelector('.carousel-btn-prev');
+      const nextBtn = document.querySelector('.carousel-btn-next');
+      const carouselDots = document.querySelectorAll('.carousel-dot');
+      const projectCards = document.querySelectorAll('.projects-carousel .project-card');
+      
+      if (carousel && prevBtn && nextBtn && carouselDots.length && projectCards.length) {
+        let currentIndex = 0;
+        
+        function updateCarousel() {
+          const cardWidth = projectCards[0].offsetWidth;
+          const gap = 32;
+          const scrollPosition = currentIndex * (cardWidth + gap);
+          
+          carousel.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+          });
+          
+          carouselDots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
           });
         }
-      }, 100);
+        
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < projectCards.length - 1) {
+            currentIndex++;
+            updateCarousel();
+          }
+        });
+        
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          }
+        });
+        
+        carouselDots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+        
+        let scrollTimeout;
+        carousel.addEventListener('scroll', () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            const cardWidth = projectCards[0].offsetWidth;
+            const gap = 32;
+            const scrollLeft = carousel.scrollLeft;
+            const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+            
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < projectCards.length) {
+              currentIndex = newIndex;
+              carouselDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+              });
+            }
+          }, 100);
+        });
+      }
     });
-  }
+  </script>
 
-
-
-
-</script>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FMD6J482K7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FMD6J482K7');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMD6J48ZX7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FMD6J48ZX7');
+  </script>
 </body>
 </html>
