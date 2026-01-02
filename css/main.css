@@ -1962,7 +1962,13 @@ body::after {
   
   /* Mobile pricing adjustments */
   .pricing-section {
-    padding: 6rem 0 3rem;
+    padding: 8rem 0 3rem;
+  }
+  
+  /* Pricing and Contact pages - adjust top padding for overlapping logo */
+  body:has(.pricing-section) .site-header,
+  body:has(.contact-section) .site-header {
+    padding-bottom: 60px;
   }
   
   .pricing-intro h1,
@@ -2052,7 +2058,7 @@ body::after {
   }
   
   .contact-section {
-    padding: 3rem 1rem;
+    padding: 8rem 1rem 3rem;
   }
   
   .about-content {
