@@ -2567,3 +2567,180 @@ body::after {
   font-size: 0.92rem;
   color: var(--tech-text-muted);
 }
+/* =========================================
+   Shoreline Dev Co. Electric Circuit Theme
+   Overrides only. No layout or content changes.
+   Load AFTER your main.css
+   ========================================= */
+
+:root{
+  --eb-bg-0:#040a18;
+  --eb-bg-1:#07142c;
+  --eb-bg-2:#0b1f3a;
+  --eb-blue:#00b7ff;
+  --eb-cyan:#00d4ff;
+  --eb-white:#f4fbff;
+
+  --eb-glow: rgba(0,183,255,.35);
+  --eb-glow-2: rgba(0,212,255,.22);
+
+  --eb-surface: rgba(10, 22, 40, .72);
+  --eb-border: rgba(0,183,255,.28);
+}
+
+/* Base */
+html, body { height: 100%; }
+
+body{
+  background: radial-gradient(1200px 700px at 70% 35%, rgba(0,183,255,.18), transparent 55%),
+              radial-gradient(900px 600px at 25% 65%, rgba(0,212,255,.12), transparent 55%),
+              linear-gradient(135deg, var(--eb-bg-0), var(--eb-bg-2));
+  color: var(--eb-white);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Circuit board lines behind everything */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Layered circuit lines */
+  background-image:
+    /* thin horizontal traces */
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 72px,
+      rgba(255,255,255,.10) 72px,
+      rgba(0,183,255,.18) 72.6px,
+      rgba(255,255,255,.08) 73.2px,
+      transparent 74px,
+      transparent 144px
+    ),
+    /* thin vertical traces */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 92px,
+      rgba(255,255,255,.08) 92px,
+      rgba(0,212,255,.14) 92.6px,
+      rgba(255,255,255,.06) 93.2px,
+      transparent 94px,
+      transparent 188px
+    ),
+    /* diagonal subtle */
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 160px,
+      rgba(0,183,255,.10) 160px,
+      rgba(255,255,255,.06) 160.8px,
+      transparent 162px,
+      transparent 320px
+    ),
+    /* node dots */
+    radial-gradient(circle 2px at 12% 28%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(circle 2px at 22% 62%, rgba(0,212,255,.35), transparent 60%),
+    radial-gradient(circle 2px at 48% 44%, rgba(255,255,255,.30), transparent 60%),
+    radial-gradient(circle 2px at 78% 22%, rgba(0,183,255,.40), transparent 60%),
+    radial-gradient(circle 2px at 86% 72%, rgba(255,255,255,.25), transparent 60%);
+
+  opacity: .75;
+  filter: drop-shadow(0 0 10px var(--eb-glow));
+  transform: translate3d(0,0,0);
+  animation: eb-drift 28s linear infinite;
+}
+
+@keyframes eb-drift{
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(40px, 40px, 0); }
+}
+
+/* Soft glow vignette */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(800px 500px at 60% 40%, rgba(0,183,255,.20), transparent 60%),
+    radial-gradient(900px 600px at 35% 70%, rgba(0,212,255,.14), transparent 60%),
+    radial-gradient(1200px 900px at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%);
+  opacity: .9;
+}
+
+/* Ensure your actual page content sits above the background */
+.site-header,
+main,
+.section,
+footer,
+.site-footer{
+  position: relative;
+  z-index: 1;
+}
+
+/* Surfaces: cards, sections, nav, containers
+   These selectors are intentionally broad to match most existing structures */
+.section,
+.projects-section,
+.how-it-works-section,
+.why-section,
+.mobile-section,
+.faq-section{
+  background: transparent !important;
+}
+
+.project-frame,
+.process-step,
+.metrics-section,
+.faq-item,
+.contact-card,
+.contact-map,
+.pricing-card,
+.pricing-highlight-card{
+  background: var(--eb-surface) !important;
+  border-color: var(--eb-border) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,.55);
+}
+
+/* Headings and accents */
+h1, h2, h3{
+  color: var(--eb-white);
+}
+
+a{
+  color: var(--eb-blue);
+}
+
+a:hover{
+  color: var(--eb-cyan);
+}
+
+/* Buttons */
+.btn-primary,
+.nav-cta{
+  background: linear-gradient(135deg, var(--eb-blue), var(--eb-cyan)) !important;
+  color: #041022 !important;
+  box-shadow: 0 10px 30px var(--eb-glow);
+  border: 0 !important;
+}
+
+.btn-secondary{
+  border-color: rgba(255,255,255,.35) !important;
+  box-shadow: 0 0 18px var(--eb-glow-2);
+}
+
+.btn-secondary:hover{
+  background: rgba(0,183,255,.14) !important;
+  border-color: rgba(0,212,255,.55) !important;
+}
+
+/* Optional: slightly cleaner text contrast */
+p, li{
+  color: rgba(244,251,255,.88);
+}
