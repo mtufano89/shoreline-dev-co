@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing | Shoreline Dev Co.</title>
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Pricing - Shoreline Dev Co. Web Design" />
+  <meta property="og:description" content="Simple, transparent pricing for modern websites. Starting at $399 for small businesses. No long-term contracts." />
+  <meta property="og:image" content="https://shorelinedevco.com/images/primary-logo.png" />
+  <meta property="og:url" content="https://shorelinedevco.com/pricing.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Shoreline Dev Co." />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pricing - Shoreline Dev Co. Web Design" />
+  <meta name="twitter:description" content="Simple, transparent pricing for modern websites. Starting at $399 for small businesses. No long-term contracts." />
+  <meta name="twitter:image" content="https://shorelinedevco.com/images/primary-logo.png" />
+  
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -173,6 +188,23 @@
       </article>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p class="footer-meta">
+          &copy; <span id="year"></span> Shoreline Dev Co. All rights reserved.
+        </p>
+      </div>
+      <div class="footer-credit">
+        Built by <a href="https://shorelinedevco.com" target="_blank">Shoreline Dev Co.</a>
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
 
   <!-- HAMBURGER MENU SCRIPT -->
   <script>
