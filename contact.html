@@ -40,7 +40,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
+       <li><a href="index.html#projects">Projects</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html" class="active">Contact Us</a></li>
       </ul>
@@ -193,6 +193,45 @@
       });
     }
   </script>
+
+  <script>
+  (function () {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    const threshold = 10; // prevents jitter
+
+    window.addEventListener("scroll", () => {
+      const currentY = window.scrollY;
+
+      // always show at the very top
+      if (currentY <= 0) {
+        header.classList.remove("nav-hidden");
+        lastScrollY = currentY;
+        return;
+      }
+
+      // if mobile menu is open, keep header visible
+      const navLinks = document.querySelector(".nav-links");
+      const menuOpen = navLinks && navLinks.classList.contains("mobile-open");
+      if (menuOpen) {
+        header.classList.remove("nav-hidden");
+        lastScrollY = currentY;
+        return;
+      }
+
+      const scrollingDown = currentY > lastScrollY + threshold;
+      const scrollingUp = currentY < lastScrollY - threshold;
+
+      if (scrollingDown) header.classList.add("nav-hidden");
+      if (scrollingUp) header.classList.remove("nav-hidden");
+
+      lastScrollY = currentY;
+    }, { passive: true });
+  })();
+</script>
+
 
   <!-- GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMD6J48ZX7"></script>
