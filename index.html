@@ -897,5 +897,25 @@ metricsTabs.forEach((tab, index) => {
 
   gtag('config', 'G-FMD6J482K7');
 </script>
+
+<script>
+let lastScrollY = window.scrollY;
+const header = document.querySelector(".site-header");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    // scrolling down
+    header.classList.add("nav-hidden");
+  } else {
+    // scrolling up
+    header.classList.remove("nav-hidden");
+  }
+
+  lastScrollY = currentScrollY;
+});
+</script>
+
 </body>
 </html>
